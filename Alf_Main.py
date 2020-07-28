@@ -75,7 +75,7 @@ try:
             led.on(1,0,100,0)
             alf.hunt(1)
             if mod_changed(Mode):
-                ask.say("Go to Object 1")
+                ask.r2d2("verfolgung.wav")
 
             
         elif Mode == "2":
@@ -84,7 +84,7 @@ try:
             led.on(1,100,0,0)
             alf.hunt(2)
             if mod_changed(Mode):
-                ask.say("Back to Charging Station")
+                ask.r2d2("ladestation.wav")
             
         elif Mode == "3": #Tool Mode
             print("Mode 3 - Toolmodus")
