@@ -18,12 +18,16 @@ import Alf_Pixy2 as pixy
 import Alf_ToolConnect as tool
 import Alf_LED as led
 
+#Variablen
+logfile = '/home/pi/Alfred/Logs/Alf_Main.log'
+
+
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
 
 #Start Logging
 Version = "V1.0"
-logging.basicConfig(filename='/home/pi/Alfred/Logs/Alf_Main.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.debug("----------- Starte Alfred {0} ---------------".format(Version))
  
 #Funktion - Modus auslesen
