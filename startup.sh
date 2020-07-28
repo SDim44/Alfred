@@ -1,2 +1,3 @@
-python /home/pi/Alfred/Code/Alf_Main.py 
-python /home/pi/Alfred/Code/Alf_GUI.py
+#Alfred starten
+
+python ../Alf_Main.py & ../Alf_GUI.py
