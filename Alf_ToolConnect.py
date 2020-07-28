@@ -31,6 +31,7 @@ logging.debug("----------- Starte Alfred Modul - Tool Connector {0} ------------
 #Funktion - Tool Ansteuern - Hier kann eine Funktion am Arduino ausgefuehrt werden. Ein webrequest wird gesendet - num ist die Nummer der Funktion. (Nach diesem Befehl muss ein do() ausgefuehrt werden)
 def set(command):
     ser.write("{0}\n".format(command))
+    ser.flush()
     logging.debug("command wurde gesendet: {0}".format(command))
     
 
