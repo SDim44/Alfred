@@ -21,3 +21,7 @@ def say(speech):
   
     call(["espeak",speech])
     logging.debug("Alfred: {0}".format(speech))
+
+def r2d2(file):
+    call(["aplay DATA/sounds/",file])
+    logging.debug("Alfred: r2d2 - {0}".format(file))
