@@ -1,3 +1,3 @@
 #Alfred starten
 
-python ../Alf_Main.py & ../Alf_GUI.py
+python2.7 Alf_Main.py & Alf_GUI.py
