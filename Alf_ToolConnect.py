@@ -23,8 +23,8 @@ logging.basicConfig(filename='/home/pi/Alfred/Logs/Alf_ToolConnect.log',level=lo
 logging.debug("----------- Starte Alfred Modul - Tool Connector {0} ---------------".format(Version))
 
 #Serielle Verbindung aufbauen
-#ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-#ser.flush()
+ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+ser.flush()
 
 
 
