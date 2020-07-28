@@ -17,9 +17,12 @@ import Alf_Ultraschall as distance
 import Alf_Pixy2 as pixy
 import Alf_ToolConnect as tool
 import Alf_LED as led
+import Alf_Speech as ask
 
 #Variablen
 logfile = '/home/pi/Alfred/Logs/Alf_Main.log'
+global list
+list = []
 
 
 #GPIO Warnungen deaktivieren
@@ -38,7 +41,17 @@ def mode():
     #set = int(set)
     return set
     logging.debug("mode.conf wird ausgelesen: {0}".format(set))
-   
+
+def mod_changed():
+    global list
+    last = len(list)
+    prev = last -1
+    
+    if list[last] != list[prev]:
+        return true
+
+    else:
+        return false
    
 def systemcheck():
     print("----Systemcheck wird durchgefuehrt")
@@ -59,6 +72,7 @@ try:
         #i+=1
         
         Mode = mode()
+        list.append(Mode)
 
  
         if Mode == "1":
@@ -66,17 +80,23 @@ try:
             print("\n{0}".format(pixy.get(1)))
             led.on(1,0,100,0)
             alf.hunt(1)
+            if mod_changed True:
+                ask.say("Go to Object 1")
+
             
         elif Mode == "2":
             print("Mode 2 - Objekt 2")
             print("\n{0}".format(pixy.get(2)))
             led.on(1,100,0,0)
             alf.hunt(2)
+            if mod_changed True:
+                ask.say("Back to Charging Station")
             
         elif Mode == "3": #Tool Mode
             print("Mode 3 - Toolmodus")
             led.on(1,0,0,100)
-            engin.move(0,0,0,0)                       
+            engin.move(0,0,0,0)
+            ask.say("Tool Mode")                      
             
         elif Mode == "4": #Test Mode
             #messure = distance.get(1)
@@ -84,6 +104,9 @@ try:
             print("\n\nUltraschall ----> {0}".format(messure))
             led.off(1)
             led.on(2,100,0,0)
+            ask.say("Trying to find Humans")
+        
+        elif Mode == "5": #Face detection + follow
 
 
 
