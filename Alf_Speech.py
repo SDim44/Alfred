@@ -1,7 +1,7 @@
 #
 #       Alfred Modul - Motorsteuerung
 #
-#       Stefan Dimnik, 14.03.2020
+#       Stefan Dimnik, 28.07.2020
 #
 #       Dieses Programm ist für die Sprachausgabe zustaendig.
 
