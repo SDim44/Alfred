@@ -3,7 +3,7 @@
 #
 #       Stefan Dimnik, 28.07.2020
 #
-#       Dieses Programm ist für die Sprachausgabe zustaendig.
+#       Dieses Programm ist fuer die Sprachausgabe zustaendig.
 
 #Libarys einbinden
 from subprocess import call
