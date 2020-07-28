@@ -21,8 +21,7 @@ import Alf_Speech as ask
 
 #Variablen
 logfile = '/home/pi/Alfred/Logs/Alf_Main.log'
-global list
-list = []
+prev_mode = 0
 
 
 #GPIO Warnungen deaktivieren
@@ -42,16 +41,15 @@ def mode():
     return set
     logging.debug("mode.conf wird ausgelesen: {0}".format(set))
 
-def mod_changed():
-    global list
-    last = len(list)
-    prev = last -1
-    
-    if list[last] != list[prev]:
-        return true
+def mod_changed(mode):
+    global prev_mode
+
+    if mode == prev_mode:
+        return False
 
     else:
-        return false
+        return True
+        prev_mode = mode
    
 def systemcheck():
     print("----Systemcheck wird durchgefuehrt")
@@ -72,7 +70,7 @@ try:
         #i+=1
         
         Mode = mode()
-        list.append(Mode)
+        mod_changed(Mode)
 
  
         if Mode == "1":
