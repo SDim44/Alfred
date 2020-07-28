@@ -1,0 +1,107 @@
+#Configuration 28.07.2020
+
+Hardware
+Raspberry 3 B+
+32GB SD
+7 Zoll Raspberry Touch Screen
+
+Config
+Hostname: raspberrypi
+Root: pi
+
+Bildschirm um 180Grad drehen
+	Datei öffnen „Sudo nano /boot/config.txt“
+	Ganz unten eine Zeile einfügen mit „lcd_rotate=2“
+	
+Automatisch mit Fullscreen Browser starten
+	Datei öffnen "sudo nano /etc/xdg/lxsession/LXDE-pi/autostart"
+	ALTE config(
+	@lxpanel --profile LXDE-pi
+	@pcmanfm --desktop --profile LXDE-pi
+	@xscreensaver -no-splash
+	)
+	In Datei schreiben(
+	@lxpanel --profile LXDE-pi
+	@pcmanfm --desktop --profile LXDE-pi
+	@xscreensaver -no-splash
+	@point-rpi
+	@xset s off
+	@xset -dpms
+	@xset s noblank
+	@unclutter -idle 0.1
+	@chromium-browser --kiosk http://localhost
+	)
+	
+	
+
+
+Software installiert
+
+Matchbox-keyboard (Touchscreen Tastatur)
+	„sudo apt-get install matchbox-keyboard“
+
+Apache2 (Webserver)
+	"sudo apt-get install apache2"
+	Verzeichnis "/var/www"
+	
+PHP5
+	"sudo apt-get install php5"
+	Oder für aktuellste Version
+	"sudo apt install php"
+
+Samba Server (Dateifreigabe)
+	"sudo apt-get install samba samba-common smbclient"
+	Samba Dienst starten/stoppen "sudo service smbd start" /stop
+	Default config kopieren "sudo mv /etc/samba/smb.conf /etc/samba/smb.conf_alt"
+	Neue Datei erstellen und öffnen "sudo nano /etc/samba/smb.conf"
+	Config in Datei schreiben: 
+		(
+		[global]
+		workgroup = WORKGROUP
+		security = user
+		encrypt passwords = yes
+		client min protocol = SMB2
+		client max protocol = SMB3
+		
+		[Webserver]
+		comment = Webserver
+		path = /var/www
+		read only = no
+		
+		[User]
+		comment = User
+		path = /home/pi
+		read only = no
+		)
+	Benutzer für Samba einrichten "sudo smbpasswd -a pi" danach 2mal Passwort eingeben
+	
+Jarvis - Spracherkennung
+	"git clone https://github.com/alexylem/jarvis.git" download
+	"cd jarvis"  ins Verzeichnis wechseln
+	"./jarvis.sh" Installieren
+	"jarvis"  Programm starten
+	Als Spracherkennung in Jarvis wird snowboy verwendet (oflline)
+	Anmeldung bei snowboy mit Google Account (dims.homecontrol@gmail.com)
+	
+Wiringpi - GPIO Bibliothek
+	(auf Raspbian schon vorinstalliert)
+	
+Tkinter (Python GUI) über SSH auf Display öffnen
+	"export DISPLAY=:0.0""python Alf_GUISettings.py"
+
+Python Libraries
+	"sudo pip install pyserial" Serial Port ansteuern
+
+
+Github
+
+git config --global user.name "SDim44"
+git config --global user.email "stefan.dimnik44@gmail.com"
+git config --global core.editor nano
+
+git config --global credential.helper store - Speichert Anmeldeinformationen nach der nächsten Eingabe
+
+git clone https://github.com/SDim44/Alfred
+
+git pull - für Updates
+
