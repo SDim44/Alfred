@@ -21,7 +21,7 @@ import Alf_Speech as ask
 
 #Variablen
 logfile = '/home/pi/Alfred/Logs/Alf_Main.log'
-prev_mode = 0
+global prev_mode
 
 
 #GPIO Warnungen deaktivieren
