@@ -30,15 +30,9 @@ logging.debug("----------- Starte Alfred Modul - Tool Connector {0} ------------
 
 #Funktion - Tool Ansteuern - Hier kann eine Funktion am Arduino ausgefuehrt werden. Ein webrequest wird gesendet - num ist die Nummer der Funktion. (Nach diesem Befehl muss ein do() ausgefuehrt werden)
 def set(command):
-    try:
-        ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        ser.flush()
-
-        ser.write("{0}\n".format(command))
-        logging.debug("command wurde gesendet: {0}".format(command))
-    except:
-        logging.debug("{0}\ncommand kann nicht gesendet werden (kein Tool erkannt)".format(command))
-
+    ser.write("{0}\n".format(command))
+    logging.debug("command wurde gesendet: {0}".format(command))
+    
 
     
 
