@@ -21,7 +21,8 @@ import Alf_Speech as ask
 
 #Variablen
 logfile = '/home/pi/Alfred/Logs/Alf_Main.log'
-
+global prev_mode
+prev_mode = "0"
 
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
@@ -41,7 +42,7 @@ def mode():
     logging.debug("mode.conf wird ausgelesen: {0}".format(set))
 
 def mod_changed(m):
-    prev_mode = "0"
+    global prev_mode
 
     if prev_mode == m:
         return False
