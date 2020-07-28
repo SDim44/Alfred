@@ -17,7 +17,6 @@ import Alf_Ultraschall as distance
 import Alf_Pixy2 as pixy
 import Alf_ToolConnect as tool
 import Alf_LED as led
-import Alf_Speech as ask
 
 #Variablen
 logfile = '/home/pi/Alfred/Logs/Alf_Main.log'
@@ -75,7 +74,7 @@ try:
             led.on(1,0,100,0)
             alf.hunt(1)
             if mod_changed(Mode):
-                ask.r2d2("verfolgung.wav")
+                pass
 
             
         elif Mode == "2":
@@ -84,14 +83,14 @@ try:
             led.on(1,100,0,0)
             alf.hunt(2)
             if mod_changed(Mode):
-                ask.r2d2("ladestation.wav")
+                pass
             
         elif Mode == "3": #Tool Mode
             print("Mode 3 - Toolmodus")
             led.on(1,0,0,100)
             engin.move(0,0,0,0)
             if mod_changed(Mode):    
-                ask.say("Tool Mode")                      
+                pass                    
             
         elif Mode == "4": #Test Mode
             #messure = distance.get(1)
@@ -102,7 +101,7 @@ try:
         
         elif Mode == "5": #Face detection + follow
             if mod_changed(Mode):
-                ask.say("Trying to find Humans")
+                pass
 
 
 
