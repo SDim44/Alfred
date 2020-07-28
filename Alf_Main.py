@@ -80,7 +80,7 @@ try:
             print("\n{0}".format(pixy.get(1)))
             led.on(1,0,100,0)
             alf.hunt(1)
-            if mod_changed() True:
+            if mod_changed():
                 ask.say("Go to Object 1")
 
             
@@ -89,7 +89,7 @@ try:
             print("\n{0}".format(pixy.get(2)))
             led.on(1,100,0,0)
             alf.hunt(2)
-            if mod_changed() True:
+            if mod_changed():
                 ask.say("Back to Charging Station")
             
         elif Mode == "3": #Tool Mode
@@ -106,7 +106,7 @@ try:
             led.on(2,100,0,0)
         
         elif Mode == "5": #Face detection + follow
-            if mod_changed() True:
+            if mod_changed():
                 ask.say("Trying to find Humans")
 
 
