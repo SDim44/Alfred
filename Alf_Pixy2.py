@@ -27,7 +27,7 @@ logging.debug("----------- Starte Alfred Modul - Pixy Cam 2 {0} ---------------"
 
 #Programm start
 pixy.init ()
-#pixy.change_prog ("color_connected_components")
+pixy.change_prog ("color_connected_components")
 
 class Blocks (Structure):
   _fields_ = [ ("m_signature", c_uint),
