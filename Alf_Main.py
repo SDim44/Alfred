@@ -19,7 +19,7 @@ import Alf_ToolConnect as tool
 import Alf_LED as led
 
 #Variablen
-logfile = '/home/pi/Alfred/Logs/Alf_Main.log'
+logfile = 'logs/Alf_Main.log'
 global prev_mode
 prev_mode = "0"
 
