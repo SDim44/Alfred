@@ -1,3 +1,12 @@
+#
+#       Alfred Computer-Vision
+#
+#       Stefan Dimnik, 14.08.2020
+#
+#       V0.1
+#       Dieses Programm uebernimmt die Objekterkennung mit opencv.
+
+
 import cv2
 import numpy as np
 
