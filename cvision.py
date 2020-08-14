@@ -13,7 +13,7 @@ import numpy as np
 cap = cv2.VideoCapture(0)
 
 
-def facedetect()
+def facedetect():
     face_cascade = cv2.CascadeClassifier('DATA/haarcascades/haarcascade_frontalface_default.xml')
 
     ret, frame = cap.read(0)
