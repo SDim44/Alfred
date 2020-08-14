@@ -13,7 +13,7 @@ import logging
 import RPi.GPIO as GPIO
 import Alf_Motor as engin
 import Alf_Ultraschall as distance
-import Alf_Pixy2 as pixy
+import cvision as cv
 
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
