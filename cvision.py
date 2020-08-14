@@ -25,5 +25,5 @@ def facedetect():
         midy = (y+h) /2
 
     cap.release()
-
+    print midx,midy,x,y,w,h
     return midx,midy,x,y,w,h
