@@ -71,7 +71,7 @@ def getvalue2(swert):
     
 def setmode(num):
     wert = str(num)
-    config = open("/var/www/html/mode.conf","w")
+    config = open("mode.conf","w")
     config.write(wert)
     config.close
     
