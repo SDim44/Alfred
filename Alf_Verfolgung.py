@@ -20,7 +20,7 @@ GPIO.setwarnings(False)
 
 #Logging config
 Version = "V1.0"
-logging.basicConfig(filename='/home/pi/Alfred/Logs/Alf_Verfolgung.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename='logs/Alf_Verfolgung.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.debug("----------- Starte Alfred Modul - Verfolgung {0} ---------------".format(Version))
 
 #Variablen definieren
