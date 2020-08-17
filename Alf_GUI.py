@@ -204,6 +204,9 @@ def main():
     Button(root, text="Verfolgung", width=10, height=2, command= lambda: setmode(1)) .grid(row=3, column=1, padx=5, pady=5, rowspan=2)
     Button(root, text="Ladestation", width=10, height=2, command= lambda: setmode(2)) .grid(row=5, column=1, padx=5, pady=5, rowspan=2)
     Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=7, column=1, padx=5, pady=5, rowspan=2)
+
+    Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=9, column=1, padx=5, pady=5, rowspan=1)
+    Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=9, column=2, padx=5, pady=5, rowspan=1)
     
     #2.Spalte - Tool Menue
     build()
