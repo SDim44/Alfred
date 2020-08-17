@@ -13,6 +13,7 @@ import time
 import subprocess
 import Alf_ToolConnect as tool
 import RPi.GPIO as GPIO
+import Alf_Motor as engin
 
 
 #Variablen definieren
@@ -205,8 +206,8 @@ def main():
     Button(root, text="Ladestation", width=10, height=2, command= lambda: setmode(2)) .grid(row=5, column=1, padx=5, pady=5, rowspan=2)
     Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=7, column=1, padx=5, pady=5, rowspan=2)
 
-    Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=9, column=1, padx=5, pady=5, rowspan=1)
-    Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=9, column=2, padx=5, pady=5, rowspan=1)
+    Button(root, text="Forwaerts", width=10, height=2, command= lambda: engin.move(1,1,100,100) .grid(row=10, column=1, padx=5, pady=5, rowspan=1)
+    Button(root, text="Drehen", width=10, height=2, command= lambda: engin.move(1,2,50,50)) .grid(row=10, column=1, padx=5, pady=5, rowspan=1)
     
     #2.Spalte - Tool Menue
     build()
@@ -218,7 +219,7 @@ def main():
     btn_rst = Button(root, text="Restart GUI", command=restart) .grid(row=3, column=5, padx=0, pady=5)
     btn_sht = Button(root, text="Shutdown GUI", command=exit) .grid(row=5, column=5, padx=0, pady=5)
     
-    Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=10, column=4, padx=30, pady=20, rowspan= 2, columnspan = 3)
+    Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=12, column=4, padx=30, pady=20, rowspan= 2, columnspan = 3)
      
     
     #loop
