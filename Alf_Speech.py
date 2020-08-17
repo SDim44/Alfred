@@ -36,7 +36,7 @@ logging.debug("----------- Starte Alfred {0} ---------------".format(Version))
 
 #Funktion - Modus auslesen
 def mode():
-    config = open("/var/www/html/mode.conf")
+    config = open("mode.conf")
     set = config.read()
     config.close()
     #set = int(set)
