@@ -206,9 +206,9 @@ def main():
     Button(root, text="Ladestation", width=10, height=2, command= lambda: setmode(2)) .grid(row=5, column=1, padx=5, pady=5, rowspan=2)
     Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=7, column=1, padx=5, pady=5, rowspan=2)
     
-    Label (root, text="Motor", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=8, column=1, padx=0, pady=20)
-    Button(root, text="Forwaerts", width=10, height=1, command= lambda: engin.move(1,1,100,100)) .grid(row=9, column=1, padx=5, pady=5, rowspan=2)
-    Button(root, text="Drehen", width=10, height=1, command= lambda: engin.move(1,2,50,50)) .grid(row=11, column=1, padx=5, pady=5, rowspan=2)
+    Label (root, text="Motor", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=9, column=1, padx=0, pady=20)
+    Button(root, text="Forwaerts", width=10, height=1, command= lambda: engin.move(1,1,100,100)) .grid(row=10, column=1, padx=0, pady=0, rowspan=2)
+    Button(root, text="Drehen", width=10, height=1, command= lambda: engin.move(1,2,50,50)) .grid(row=11, column=1, padx=0, pady=0, rowspan=2)
     
     #2.Spalte - Tool Menue
     build()
