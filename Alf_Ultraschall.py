@@ -21,10 +21,13 @@ logging.debug("----------- Starte Alfred Modul - Ultraschall Sensoren {0} ------
 
 
 #Variablen definieren
+MAXDISTANCE = 15
+
+
+#Pins definieren
 US1 = 5,6 #Trigger,Echo
 US2 = 13,19 #Trigger,Echo
 
-#Pins definieren
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(US1[0],GPIO.OUT) #Trigger
 GPIO.setup(US1[1],GPIO.IN)  #Echo
@@ -68,6 +71,14 @@ def get(Ultrasonic):
         DistanceOut = distance(US1[0],US1[1])
     elif Ultrasonic == 2:
         DistanceOut = distance(US2[0],US2[1])
+    
+    DistanceOut = int(DistanceOut)
     return(DistanceOut)
     logging.debug("Rueckgabewert Sensor {0} : {1}".format(Ultrasonic,DistanceOut))
+
+def wall()
+    if MAXDISTANCE > distance(US1[0],US1[1]) or MAXDISTANCE > distance(US2[0],US2[1]:
+        return True
+    else:
+        return False
 
