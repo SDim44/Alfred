@@ -36,7 +36,7 @@ def mode():
     config = open("mode.conf")
     set = config.read()
     config.close()
-    #set = int(set)
+    set = set.strip(' \n\t')
     return set
     logging.debug("mode.conf wird ausgelesen: {0}".format(set))
 
