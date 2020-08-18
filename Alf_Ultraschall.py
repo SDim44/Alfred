@@ -76,7 +76,7 @@ def get(Ultrasonic):
     return(DistanceOut)
     logging.debug("Rueckgabewert Sensor {0} : {1}".format(Ultrasonic,DistanceOut))
 
-def wall()
+def wall():
     if MAXDISTANCE > distance(US1[0],US1[1]) or MAXDISTANCE > distance(US2[0],US2[1]:
         return True
     else:
