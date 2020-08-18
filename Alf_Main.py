@@ -71,7 +71,7 @@ try:
         if Mode == "1":
             print("Mode 1 - Objekt 1")
             print("\n{0}".format(pixy.get(1)))
-            print("\nWall detected?: {0}".format(distance.wall()))
+            print("\nWall detected: {0}".format(distance.wall()))
             led.on(1,0,100,0)
             alf.hunt(1)
             if mod_changed(Mode):
@@ -81,7 +81,7 @@ try:
         elif Mode == "2":
             print("Mode 2 - Objekt 2")
             print("\n{0}".format(pixy.get(2)))
-            #print("\nDistance: {0}".format(distance.get(2)))
+            print("\nWall detected: {0}".format(distance.wall()))
             led.on(1,100,0,0)
             alf.hunt(2)
             if mod_changed(Mode):
