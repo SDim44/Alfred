@@ -30,7 +30,7 @@ MINAREA     =   5000 # Minimale groesse des Objekts
 
 
 def driving(sig):  
-    if  sig[0] > 0 and distance.get(1) > 15 and distance.get(2) > 15:
+    if  sig[0] > 0 and distance.wall() == False:
         xobj = (100 / 157.5) * sig[1] - 100    # Motor Geschwindigkeit berechnen
         area = sig[3] * sig[4]
         glob_area = area
