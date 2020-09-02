@@ -178,10 +178,10 @@ def main():
     emo.title('Alfred Emotion')
     emo.attributes("-fullscreen", True)
     
-    Image = PhotoImage(file="/Data/emotions/Test.gif")
+    Image = PhotoImage(file="DATA/emotions/Test.gif")
 
     #lb1 = Label(emo, background="white")
-    Button(root, border=1, image=Image, command=exit).pack(side="top")
+    Button(emo, border=1, image=Image, bg="white", width=800, height=480, command=lift_root).pack(side="top")
     
     #btn_lift1 = Button(emo, text="Einstellungen", command=lift_root)
     #btn_lift1.pack()
