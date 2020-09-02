@@ -95,6 +95,14 @@ def lift_root():
     root.attributes("-fullscreen", True)
     emo.attributes("-fullscreen", False)
 
+#Config File lesen/aendern
+def emotion():
+    config = open("emotion.conf")
+    set = config.read()
+    config.close()
+    set = set.strip(' \n\t')
+    return set
+
 
 #tool menue  
 def build():
@@ -177,8 +185,10 @@ def main():
     emo = Tk()
     emo.title('Alfred Emotion')
     emo.attributes("-fullscreen", True)
-    
-    Image = PhotoImage(file="DATA/emotions/Test.gif")
+
+    emofile = emotion()
+    path = "DATA/emotions/" + emofile 
+    Image = PhotoImage(file=path)
 
     #lb1 = Label(emo, background="white")
     Button(emo, border=1, image=Image, bg="white", width=800, height=480, command=lift_root).pack(side="top")
