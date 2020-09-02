@@ -8,13 +8,7 @@
 #       Die Oberflaeche ist fuer einen Touchscreen ausgelegt.
 
 #Libarys
-try:
-    # Python2
-    import Tkinter as Tk
-except ImportError:
-    # Python3
-    import tkinter as Tk
-#from Tkinter import *
+from Tkinter import *
 import logging
 import time
 #import subprocess
