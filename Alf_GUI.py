@@ -10,10 +10,10 @@
 #Libarys
 try:
     # Python2
-    import Tkinter as tk
+    import Tkinter as Tk
 except ImportError:
     # Python3
-    import tkinter as tk
+    import tkinter as Tk
 #from Tkinter import *
 import logging
 import time
