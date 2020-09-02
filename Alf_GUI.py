@@ -4,7 +4,8 @@
 #       Stefan Dimnik, 09.03.2020
 #
 #       V0.1
-#       Mit dieses Programm wird die Grafische Oberflaeche aufgerufen
+#       Mit dieses Programm wird die Grafische Oberflaeche aufgerufen.
+#       Die Oberflaeche ist fuer einen Touchscreen ausgelegt.
 
 #Libarys
 from Tkinter import *
@@ -177,13 +178,13 @@ def main():
     emo.title('Alfred Emotion')
     emo.attributes("-fullscreen", True)
     
-    #image2=Image("/home/pi/Alfred/Emotions/KAL_007.jpg")
-    #image1=PhotoImage(image2)
-    lb1 = Label(emo, background="white")
+    Image = PhotoImage(file="/Data/emotions/Test.gif")
+
+    #lb1 = Label(emo, background="white")
+    Button(root, border=1, image=Image, command=exit).pack(side="top")
     
-    
-    btn_lift1 = Button(emo, text="Einstellungen", command=lift_root)
-    btn_lift1.pack()
+    #btn_lift1 = Button(emo, text="Einstellungen", command=lift_root)
+    #btn_lift1.pack()
     #btn_lift2 = Button(emo, text="exit", command=lift_root)
     #btn_lift2.pack(padx=20, pady=5)
     
