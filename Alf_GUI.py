@@ -17,12 +17,12 @@ except ImportError:
 #from Tkinter import *
 import logging
 import time
-import subprocess
+#import subprocess
 import Alf_ToolConnect as tool
 import RPi.GPIO as GPIO
 import Alf_Motor as engin
 
-
+#---------------------------------------------------------------------------------------
 #Variablen definieren
 datetime = time.strftime("%d.%m.%Y %H:%M:%S")
 mainapp = ''
@@ -36,12 +36,13 @@ btvalue1 = 0
 outtxt = ''
 command = {0,0,0}
 
-
+#---------------------------------------------------------------------------------------
 #Start Logging
 Version = "V0.1"
 logging.basicConfig(filename='logs/Alf_GUI.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.debug("----------- Starte Alfred Modul - GUI {0} ---------------".format(Version))
 
+#---------------------------------------------------------------------------------------
 #Funktionen
 def setcmd():
     global scvalue1
@@ -77,7 +78,8 @@ def getvalue2(swert):
     setcmd()
     return scvalue2
     
-def setmode(num):
+#Modus in Main aendern
+def setmode(num): 
     wert = str(num)
     config = open("mode.conf","w")
     config.write(wert)
@@ -109,7 +111,7 @@ def emotion():
     set = set.strip(' \n\t')
     return set
 
-
+#---------------------------------------------------------------------------------------
 #tool menue  
 def build():
     
@@ -180,6 +182,8 @@ def build():
         trow+=1
         Label (root, text="Kein Tool erkannt!", anchor="center", bg="white", fg="black", font="none 10 bold") .grid(row=trow, column=tcolumn, columnspan=2,padx=20)
 
+
+#---------------------------------------------------------------------------------------
 #Main
 def main():
     
@@ -242,6 +246,8 @@ def main():
     
     #loop
     #root.mainloop()
+    emo.update()
+    emo.after(1000)
     emo.mainloop()
     
 main()
