@@ -9,10 +9,8 @@
 
 #Libarys
 from Tkinter import *
-import Image, ImageTk
 import logging
 import time
-#import subprocess
 import Alf_ToolConnect as tool
 import RPi.GPIO as GPIO
 import Alf_Motor as engin
