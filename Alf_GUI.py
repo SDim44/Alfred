@@ -3,9 +3,14 @@
 #
 #       Stefan Dimnik, 09.03.2020
 #
-#       V0.1
 #       Mit dieses Programm wird die Grafische Oberflaeche aufgerufen.
+# 
+#       V0.1 
 #       Die Oberflaeche ist fuer einen Touchscreen ausgelegt.
+#       Manuelle Steuerung fuer Modus, Tool und Motoren wurde erstellt.
+#
+#       V0.2
+#       Emotionen/Bild im Hauptfenster kann im Betrieb dynamisch angepasst werden
 
 #Libarys
 from Tkinter import *
@@ -110,7 +115,9 @@ def read_emotionfile():
 
 #Schleife um das Bild im Betrieb zu aendern 
 def update_image():
+    global window
     global img
+    
     filename = read_emotionfile()    
     img = PhotoImage(file=filename)
      
@@ -195,6 +202,7 @@ def main():
     
     global emo
     global root
+    global window
     global img
     
     
