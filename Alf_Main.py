@@ -49,22 +49,54 @@ def mod_changed(m):
     else:
         prev_mode = m
         return True
+
+def set_emotion(num): 
+    wert = str(num)
+    config = open("emotion.conf","w")
+    config.write(wert)
+    config.close
    
 def systemcheck():
     print("----Systemcheck wird durchgefuehrt")
-    print(tool.get())
+    logging.debug("----Systemcheck wird durchgefuehrt")
+    
+    #Tool ueberpruefen
+    try:
+        toolcheck = tool.get()
+        print(toolcheck)
+        logging.debug("Tool OK: {0}".format(toolcheck))
+    
+    except:
+        logging.debug("Tool check faild")
+    
+    
+    
+    #Systemcheck beenden (Zwinkern)
+    set_emotion("2.gif")
+    time.sleep(1.5)
+    set_emotion("1.gif")
+
+
+
+
+
+
+
 
 
 #Main
 i = 0
 try:
+
+    #System Check
+    set_emotion("1.gif")
+    systemcheck()
+
+    #--------------------------------
+    #Schleife
+
     print("------START------")
-    while True: #System Check
-        
-        #if i == 100:
-        #    systemcheck()
-        #    i = 0
-        #i+=1
+    while True: 
         
         Mode = mode()
  
