@@ -9,6 +9,7 @@
 
 #Libarys
 from Tkinter import *
+import Image, ImageTk
 import logging
 import time
 #import subprocess
@@ -98,12 +99,23 @@ def lift_root():
     emo.attributes("-fullscreen", False)
 
 #Config File lesen/aendern
-def emotion():
+def read_emotionfile():
     config = open("emotion.conf")
     set = config.read()
     config.close()
     set = set.strip(' \n\t')
-    return set
+    
+    path = "DATA/emotions/" + set
+    return path
+
+#Schleife um das Bild im Betrieb zu aendern 
+def update_image():
+    global tkimg
+    filename = read_emotionfile()    
+    tkimg = PhotoImage(file=filename)
+     
+    window.config(image = tkimg)
+    window.after(1000, update_image)
 
 #---------------------------------------------------------------------------------------
 #tool menue  
@@ -183,25 +195,22 @@ def main():
     
     global emo
     global root
+    global emotionfile
     
     
-    #Emotion Window
+    #Main Emotion Window
     emo = Tk()
     emo.title('Alfred Emotion')
     emo.attributes("-fullscreen", True)
 
-    emofile = emotion()
-    path = "DATA/emotions/" + emofile 
-    Image = PhotoImage(file=path)
+    filename = read_emotionfile()
+    tkimg = PhotoImage(file=filename)
 
-    #lb1 = Label(emo, background="white")
-    Button(emo, border=1, image=Image, bg="white", width=800, height=480, command=lift_root).pack(side="top")
-    
-    #btn_lift1 = Button(emo, text="Einstellungen", command=lift_root)
-    #btn_lift1.pack()
-    #btn_lift2 = Button(emo, text="exit", command=lift_root)
-    #btn_lift2.pack(padx=20, pady=5)
-    
+    window = Button(emo, image=tkimg, command=exit)
+
+    window.pack()
+
+    emo.after(1000, update_image)
     
     #Main root
     root = Tk()
@@ -238,10 +247,6 @@ def main():
     Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=12, column=4, padx=30, pady=20, rowspan= 2, columnspan = 3)
      
     
-    #loop
-    #root.mainloop()
-    emo.update()
-    emo.after(1000)
     emo.mainloop()
     
 main()
