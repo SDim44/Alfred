@@ -112,7 +112,7 @@ try:
 #--------------------------------------------------------------------------------
 # Mode 1  
         if Mode == "1":
-             print("Mode 1 - Objekt 1")
+            print("Mode 1 - Objekt 1")
             try:          
                 print("\n{0}".format(pixy.get(1)))
                 print("\nWall detected: {0}".format(distance.wall()))
