@@ -204,7 +204,7 @@ def main():
     filename = read_emotionfile()
     img = PhotoImage(file=filename)
 
-    window = Button(emo, image=img, command=exit)
+    window = Button(emo, image=img, command=lift_root)
 
     window.pack()
 
@@ -213,7 +213,6 @@ def main():
     #Main root
     root = Tk()
     root.title("Alfred GUI")
-    root.attributes("-fullscreen", True)
     root.configure(background="white")
 
     #Header
