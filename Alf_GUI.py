@@ -108,11 +108,11 @@ def read_emotionfile():
 
 #Schleife um das Bild im Betrieb zu aendern 
 def update_image():
-    global tkimg
+    global img
     filename = read_emotionfile()    
-    tkimg = PhotoImage(file=filename)
+    img = PhotoImage(file=filename)
      
-    window.config(image = tkimg)
+    window.config(image = img)
     window.after(1000, update_image)
 
 #---------------------------------------------------------------------------------------
@@ -193,7 +193,7 @@ def main():
     
     global emo
     global root
-    global emotionfile
+    global img
     
     
     #Main Emotion Window
@@ -202,9 +202,9 @@ def main():
     emo.attributes("-fullscreen", True)
 
     filename = read_emotionfile()
-    tkimg = PhotoImage(file=filename)
+    img = PhotoImage(file=filename)
 
-    window = Button(emo, image=tkimg, command=exit)
+    window = Button(emo, image=img, command=exit)
 
     window.pack()
 
@@ -213,7 +213,7 @@ def main():
     #Main root
     root = Tk()
     root.title("Alfred GUI")
-    #root.attributes("-fullscreen", True)
+    root.attributes("-fullscreen", True)
     root.configure(background="white")
 
     #Header
