@@ -255,5 +255,5 @@ def main():
      
     
     emo.mainloop()
-    
+
 main()
