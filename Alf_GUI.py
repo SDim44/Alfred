@@ -22,6 +22,7 @@ mainapp = ''
 
 emo = ''
 root = ''
+window = ''
 img = ''
 
 scvalue1 = 0
