@@ -79,9 +79,11 @@ def systemcheck():
         logging.debug("Tool OK: {0}".format(toolcheck))
     
     except:
-        logging.debug("Tool check faild")
+        logging.warning("Tool check faild")
     
     #Systemcheck beenden (Zwinkern)
+    set_emotion("1.gif")
+    time.sleep(1.5)
     set_emotion("2.gif")
     time.sleep(1.5)
     set_emotion("1.gif")
@@ -96,7 +98,8 @@ try:
 
 #--------------------------------------------------------------------------------
 #System Check
-    set_emotion("1.gif")
+    set_emotion("99.gif")
+    time.sleep(3)
     systemcheck()
 
     
@@ -179,7 +182,7 @@ try:
 
 
 #--------------------------------------------------------------------------------
-#
+# Exceptions
 
 except KeyboardInterrupt:
     GPIO.cleanup()
