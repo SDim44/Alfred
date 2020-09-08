@@ -98,12 +98,12 @@ def exit():
 
 def alf_sht():
     #try:
-    #os.system("sudo /etc/init.d/Alfred stop")
+    os.system("/etc/init.d/Alfred stop")
     #except:
         #logging.warning("!!!Init-Script nicht konfiguriert - Alfred wird beendent")
-    root.destroy()
-    emo.destroy()
-    os.system("./Alf_Stop.sh")
+    #root.destroy()
+    #emo.destroy()
+    #os.system("./Alf_Stop.sh")
         
 def alf_rst():    
     #try:
