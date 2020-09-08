@@ -19,6 +19,7 @@ import time
 import Alf_ToolConnect as tool
 import RPi.GPIO as GPIO
 import Alf_Motor as engin
+import os
 
 #---------------------------------------------------------------------------------------
 #Variablen definieren
@@ -94,6 +95,12 @@ def restart():
 def exit():
     root.destroy()
     emo.destroy()
+
+def alf_ctr(cmd)
+    if cmd == s:
+        os.system("sudo /etc/init.d/Alfred stop")
+    if cmd == r:
+        os.system("sudo /etc/init.d/Alfred restart")
     
 def lift_emo():
     root.attributes("-fullscreen", False)
@@ -250,6 +257,8 @@ def main():
     #Footer
     btn_rst = Button(root, text="Restart GUI", command=restart) .grid(row=3, column=5, padx=0, pady=5)
     btn_sht = Button(root, text="Shutdown GUI", command=exit) .grid(row=5, column=5, padx=0, pady=5)
+    btn_arst = Button(root, text="Restart Alfred", command=lambda: alf_ctr(r)) .grid(row=7, column=5, padx=0, pady=5)
+    btn_asht = Button(root, text="Shutdown Alfred", command=lambda: alf_ctr(s)) .grid(row=7, column=5, padx=0, pady=5)
     
     Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=12, column=4, padx=30, pady=20, rowspan= 2, columnspan = 3)
      
