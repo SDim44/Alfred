@@ -263,10 +263,10 @@ def main():
     Label (root, text="System", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=2, column=4, padx=0, pady=0,columnspan = 2)
     
     #Footer
-    btn_rst = Button(root, text="Restart GUI", width=10, height=2,command=restart) .grid(row=3, column=5, padx=5, pady=5, rowspan=2)
+    btn_rst = Button(root, text="Restart GUI", width=10, height=2,command=restart) .grid(row=3, column=5, padx=0, pady=5, rowspan=2)
     #btn_sht = Button(root, text="Shutdown GUI", width=10, height=2,command=exit) .grid(row=5, column=5, padx=0, pady=5)
-    btn_arst = Button(root, text="Restart Alfred", width=10, height=2,command=alf_rst) .grid(row=5, column=5, padx=5, pady=5, rowspan=2)
-    btn_asht = Button(root, text="Shutdown Alfred", width=10, height=2,command=alf_sht) .grid(row=7, column=5, padx=5, pady=5, rowspan=2)
+    btn_arst = Button(root, text="Restart Alfred", width=10, height=2,command=alf_rst) .grid(row=5, column=5, padx=0, pady=5, rowspan=2)
+    btn_asht = Button(root, text="Shutdown Alfred", width=10, height=2,command=alf_sht) .grid(row=7, column=5, padx=0, pady=5, rowspan=2)
     
     Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=12, column=4, padx=30, pady=20, rowspan= 2, columnspan = 3)
      
