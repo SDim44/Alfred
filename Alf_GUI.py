@@ -96,11 +96,19 @@ def exit():
     root.destroy()
     emo.destroy()
 
-def alf_ctr(cmd):
-    if cmd == s:
+def alf_sht():
+    try:
         os.system("sudo /etc/init.d/Alfred stop")
-    if cmd == r:
+    except:
+        logging.warning("!!!Init-Script nicht konfiguriert - Alfred wird beendent")
+        os.system("./Alf_Stop.sh")
+        
+def alf_rst():    
+    try:
         os.system("sudo /etc/init.d/Alfred restart")
+    except:
+        logging.warning("!!!Init-Script nicht konfiguriert - Alfred wird nur beendent und muss manuell neu gestartet werden")
+        os.system("./Alf_Stop.sh")
     
 def lift_emo():
     root.attributes("-fullscreen", False)
@@ -255,10 +263,10 @@ def main():
     Label (root, text="System", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=2, column=4, padx=0, pady=0,columnspan = 2)
     
     #Footer
-    btn_rst = Button(root, text="Restart GUI", command=restart) .grid(row=3, column=5, padx=0, pady=5)
-    btn_sht = Button(root, text="Shutdown GUI", command=exit) .grid(row=5, column=5, padx=0, pady=5)
-    btn_arst = Button(root, text="Restart Alfred", command=lambda: alf_ctr(r)) .grid(row=7, column=5, padx=0, pady=5)
-    btn_asht = Button(root, text="Shutdown Alfred", command=lambda: alf_ctr(s)) .grid(row=7, column=5, padx=0, pady=5)
+    btn_rst = Button(root, text="Restart GUI", width=10, height=2,command=restart) .grid(row=3, column=1, padx=5, pady=5, rowspan=2)
+    #btn_sht = Button(root, text="Shutdown GUI", width=10, height=2,command=exit) .grid(row=5, column=5, padx=0, pady=5)
+    btn_arst = Button(root, text="Restart Alfred", width=10, height=2,command=alf_rst) .grid(row=5, column=1, padx=5, pady=5, rowspan=2)
+    btn_asht = Button(root, text="Shutdown Alfred", width=10, height=2,command=alf_sht) .grid(row=7, column=1, padx=5, pady=5, rowspan=2)
     
     Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=12, column=4, padx=30, pady=20, rowspan= 2, columnspan = 3)
      
