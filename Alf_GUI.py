@@ -96,7 +96,7 @@ def exit():
     root.destroy()
     emo.destroy()
 
-def alf_ctr(cmd)
+def alf_ctr(cmd):
     if cmd == s:
         os.system("sudo /etc/init.d/Alfred stop")
     if cmd == r:
