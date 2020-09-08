@@ -20,11 +20,15 @@ import logging
 #Start Logging
 Version = "V2.0"
 logging.basicConfig(filename='logs/Alf_ToolConnect.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-logging.debug("----------- Starte Alfred Modul - Tool Connector {0} ---------------".format(Version))
+logging.info("----------- Starte Alfred Modul - Tool Connector {0} ---------------".format(Version))
 
 #Serielle Verbindung aufbauen
-ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-ser.flush()
+try:
+    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+    ser.flush()
+except:
+    logging.info("!!! No Tool detected!")
+    
 
 
 
