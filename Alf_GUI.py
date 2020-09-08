@@ -101,6 +101,8 @@ def alf_sht():
     #os.system("sudo /etc/init.d/Alfred stop")
     #except:
         #logging.warning("!!!Init-Script nicht konfiguriert - Alfred wird beendent")
+    root.destroy()
+    emo.destroy()
     os.system("./Alf_Stop.sh")
         
 def alf_rst():    
@@ -108,6 +110,8 @@ def alf_rst():
     #os.system("sudo /etc/init.d/Alfred restart")
     #except:
         #logging.warning("!!!Init-Script nicht konfiguriert - Alfred wird nur beendent und muss manuell neu gestartet werden")
+    root.destroy()
+    emo.destroy()
     os.system("./Alf_Stop.sh")
     
 def lift_emo():
