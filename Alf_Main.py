@@ -120,27 +120,6 @@ def systemcheck():
     set_emotion("2.gif")
     time.sleep(1)
     set_emotion("1.gif")
-#--------------------------------------------------------------------------------
-def everyloop():
-    Mode = mode() #Mode auslesen
-    wall = distance.wall() # Ultraschallsensoren auslesen
-    if Mode == "1":
-        pixysig = pixy.get(1)
-    elif Mode == "2":
-        pixysig = pixy.get(2)
-
-    
-    logging.info("\n{0}".format(pixysig))
-
-    if wall == True:
-        #set_emotion(3.gif)
-        logging.info("----> Wall detected!"
-
-    #if pixysig ==
-        #set_emotion(r.gif)
-    temp=[Mode, pixysig, wall]
-    return temp
-
 
 
 #--------------------------------------------------------------------------------
@@ -164,19 +143,17 @@ try:
     while True: 
         
         time.sleep(0.2) #Verhindert Laufzeitfehler
-        Mode, pixysig, wall = everyloop()
         
-        #Variablen festlegen
-        
-
-        
-
+        #Variablen setzten
+        Mode = mode() #Mode auslesen
+        wall = distance.wall() # Ultraschallsensoren auslesen     
  
 #--------------------------------------------------------------------------------
 # Mode 1  
         elif Mode == "1":
             logging.info("Mode 1 - Objekt 1")
-            try:          
+            try:
+                pixysig = pixy.get(1)          
                 alf.hunt(1)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
@@ -193,6 +170,7 @@ try:
         elif Mode == "2":
             logging.info("Mode 2 - Objekt 2")
             try:
+                pixysig = pixy.get(2)
                 logging.info("\n{0}".format(pixysig))
                 alf.hunt(2)
             except:
@@ -249,9 +227,23 @@ try:
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
 
+#--------------------------------------------------------------------------------
+#Emotionen anzeigen
+        logging.info("\n{0}".format(pixysig))
+
+        if wall == True:
+            #set_emotion(3.gif)
+            logging.info("----> Wall detected!"
+
+        #if pixysig ==
+            #set_emotion(r.gif)
+
 
 #--------------------------------------------------------------------------------
 # Exceptions
+
+
+
 
 except KeyboardInterrupt:
     led.off(1)
