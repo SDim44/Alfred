@@ -21,8 +21,10 @@ GPIO.setwarnings(False)
 
 #Logging starten
 Version = "V1.0"
-logging.basicConfig(filename='logs/Alf_Pixy2.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-logging.debug("----------- Starte Alfred Modul - Pixy Cam 2 {0} ---------------".format(Version))
+lofile = 'logs/Alf_Pixy.log'
+logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
+logging.info("----------- Starte Alfred Modul - Pixy Cam 2 {0} ---------------".format(Version))
 
 
 #Programm start
