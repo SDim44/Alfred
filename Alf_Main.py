@@ -139,7 +139,7 @@ def everyloop():
     #if pixysig ==
         #set_emotion(r.gif)
 
-    return Mode,pixysig,wall
+    return Mode, pixysig, wall
 
 
 
@@ -164,7 +164,7 @@ try:
     while True: 
         
         time.sleep(0.2) #Verhindert Laufzeitfehler
-        Mode,pixysig,wall = everyloop()
+        Mode, pixysig, wall = everyloop()
         
         #Variablen festlegen
         
