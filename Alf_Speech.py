@@ -20,7 +20,6 @@ import Alf_LED as led
 from subprocess import call
 
 #Variablen
-logfile = 'logs/Alf_Speech.log'
 global prev_mode
 prev_mode = "0"
 
