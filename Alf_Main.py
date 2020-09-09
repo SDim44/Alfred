@@ -32,6 +32,7 @@ GPIO.setwarnings(False)
 #Start Logging
 Version = "V1.0"
 logging.basicConfig(filename=logfile,level=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.FileHandler(output_filename, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred {0} ---------------".format(Version))
 
 
