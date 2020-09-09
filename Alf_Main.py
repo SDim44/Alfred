@@ -12,6 +12,9 @@
 
 #--------------------------------------------------------------------------------
 #Start Logging
+import time
+import logging
+import os
 Version = "V0.2"
 logging.basicConfig(filename=logfile,level=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
@@ -19,9 +22,6 @@ logging.info("----------- Starte Alfred {0} ---------------".format(Version))
 
 
 #Libarys
-import time
-import logging
-import os
 import RPi.GPIO as GPIO
 import Alf_Motor as engin
 import Alf_Verfolgung as alf
