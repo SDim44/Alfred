@@ -4,6 +4,10 @@
 #       Stefan Dimnik, 09.03.2020
 #
 #       Dieses Programm uebernimmt die Steuerung der Roboter-Platform.
+#
+#       V0.2 
+#       Laufzeitfehler behoben und logging erweitert
+#
 
 
 #Libarys
@@ -30,7 +34,7 @@ GPIO.setwarnings(False)
 
 #--------------------------------------------------------------------------------
 #Start Logging
-Version = "V1.0"
+Version = "V0.2"
 logging.basicConfig(filename=logfile,level=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred {0} ---------------".format(Version))
@@ -86,6 +90,7 @@ def systemcheck():
         for root, dirs, files in os.walk("logs/"):
             for file in files:
                 os.remove(os.path.join(root, file))
+                os.mknod(os.path.join(root, file))
     except:
         logging.warning("!!! Tool check faild")
     
