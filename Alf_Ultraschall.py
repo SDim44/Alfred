@@ -18,7 +18,7 @@ GPIO.setwarnings(False)
 
 #Logging starten
 Version = "V0.2" #Funktioniert nicht - Sensor scheinbar defekt
-lofile = 'logs/Alf_Ultraschall.log'
+logfile = 'logs/Alf_Ultraschall.log'
 logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)logging.info("----------- Starte Alfred Modul - Ultraschall Sensoren {0} ---------------".format(Version))
 
