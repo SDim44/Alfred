@@ -11,8 +11,10 @@ import time
 import RPi.GPIO as GPIO
 import logging
 
+#--------------------------------------------------------------------------------
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
+#--------------------------------------------------------------------------------
 
 #Logging starten
 Version = "V1.0"
