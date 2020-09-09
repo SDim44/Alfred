@@ -18,8 +18,10 @@ GPIO.setwarnings(False)
 
 #Logging starten
 Version = "V1.0"
-logging.basicConfig(filename='logs/Alf_LED.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-logging.debug("----------- Starte Alfred Modul - LED {0} ---------------".format(Version))
+lofile = 'logs/Alf_LED.log'
+logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
+logging.info("----------- Starte Alfred Modul - LED {0} ---------------".format(Version))
 
 #Variablen definieren
 R1 = 22
