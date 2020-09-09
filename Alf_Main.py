@@ -117,9 +117,9 @@ try:
         if Mode == "1":
             print("Mode 1 - Objekt 1")
             try:          
-                #print("\n{0}".format(pixy.get(1)))
-                #print("\nWall detected: {0}".format(distance.wall()))
-                alf.hunt(1)
+                print("\n{0}".format(pixy.get(1)))
+                print("\nWall detected: {0}".format(distance.wall()))
+                #alf.hunt(1)
             except:
                 print("----Fehler ist aufgetreten!")
             
@@ -131,9 +131,9 @@ try:
         elif Mode == "2":
             print("Mode 2 - Objekt 2")
             try:
-                #print("\n{0}".format(pixy.get(2)))
-                #print("\nWall detected: {0}".format(distance.wall()))
-                alf.hunt(2)
+                print("\n{0}".format(pixy.get(2)))
+                print("\nWall detected: {0}".format(distance.wall()))
+                #alf.hunt(2)
             except:
                 print("----Fehler ist aufgetreten!")
             
