@@ -130,12 +130,12 @@ try:
 # Mode 2              
         elif Mode == "2":
             print("Mode 2 - Objekt 2")
-            try:
-                print("\n{0}".format(pixy.get(2)))
-                print("\nWall detected: {0}".format(distance.wall()))
-                #alf.hunt(2)
-            except:
-                print("----Fehler ist aufgetreten!")
+            #try:
+            print("\n{0}".format(pixy.get(2)))
+            print("\nWall detected: {0}".format(distance.wall()))
+            alf.hunt(2)
+            #except:
+                #print("----Fehler ist aufgetreten!")
             
             if mod_changed(Mode):
                 led.on(1,100,0,0)
