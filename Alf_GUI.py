@@ -40,7 +40,9 @@ command = {0,0,0}
 #---------------------------------------------------------------------------------------
 #Start Logging
 Version = "V0.1"
-#logging.basicConfig(filename='logs/Alf_GUI.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logfile = 'logs/Alf_GUI.log'
+logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.debug("----------- Starte Alfred Modul - GUI {0} ---------------".format(Version))
 
 #---------------------------------------------------------------------------------------
