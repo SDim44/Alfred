@@ -156,7 +156,7 @@ try:
         
         logging.info("\n{0}".format(pixysig))
 
-        if wall == True:
+        elif wall == True:
             #set_emotion(3.gif)
             logging.info("----> Wall detected!"
 
@@ -168,7 +168,7 @@ try:
  
 #--------------------------------------------------------------------------------
 # Mode 1  
-        if Mode == "1":
+        elif Mode == "1":
             logging.info("Mode 1 - Objekt 1")
             try:          
                 alf.hunt(1)
