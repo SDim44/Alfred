@@ -19,9 +19,9 @@ import logging
 
 #Start Logging
 Version = "V0.2"
-#logfile = 'logs/Alf_ToolConnect.log'
-#logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-#logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
+logfile = 'logs/Alf_GUI.log'
+logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred Modul - Tool Connector {0} ---------------".format(Version))
 
 #Serielle Verbindung aufbauen
