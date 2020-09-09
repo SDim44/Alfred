@@ -9,7 +9,7 @@
 #Libarys
 import time
 import logging
-import subprocess
+import os
 import RPi.GPIO as GPIO
 import Alf_Motor as engin
 import Alf_Verfolgung as alf
@@ -72,15 +72,30 @@ def set_emotion(num):
 
 #--------------------------------------------------------------------------------   
 def systemcheck():
-    logging.info("----Systemcheck wird durchgefuehrt")
+    logging.info("----Systemcheck wird durchgefuehrt----")
     
     #Tool ueberpruefen
-    try:
-        toolcheck = tool.get()
-        logging.info("Tool OK: {0}".format(toolcheck))
+    logging.info("----> Ladescreen erzeugen")
+    set_emotion("99.gif")
     
+    #------------
+    
+    try:
+        logging.info("----> Alte logfiles entfernen")
+        for root, dirs, files in os.walk("logs/"):
+            for file in files:
+                os.remove(os.path.join(root, file))
     except:
         logging.warning("!!! Tool check faild")
+    
+    #------------
+    
+    try:
+        toolcheck = tool.get()
+        logging.info("----> Tool OK: {0}".format(toolcheck))    
+    except:
+        logging.warning("!!! Tool check faild")
+    
     
     #Systemcheck beenden (Zwinkern)
     set_emotion("1.gif")
@@ -99,8 +114,7 @@ try:
 
 #--------------------------------------------------------------------------------
 #System Check
-    set_emotion("99.gif")
-    time.sleep(3)
+    
     systemcheck()
 
     
