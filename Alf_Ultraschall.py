@@ -4,6 +4,8 @@
 #       Stefan Dimnik, 14.03.2020
 #
 #       In diesem Programm koennen 2 Stueck Ultraschall Sensoren ausglesen werden.
+#
+#       ACHTUNG!! Aufrufe muessen Zeitlich abgegrenz werden (Fehler bei schnellen aufrufen)
 
 
 #Libraries einbinden
@@ -16,8 +18,9 @@ GPIO.setwarnings(False)
 
 #Logging starten
 Version = "V0.2" #Funktioniert nicht - Sensor scheinbar defekt
-logging.basicConfig(filename='logs/Alf_Ultraschall.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-logging.debug("----------- Starte Alfred Modul - Ultraschall Sensoren {0} ---------------".format(Version))
+lofile = 'logs/Alf_Ultraschall.log'
+logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)logging.info("----------- Starte Alfred Modul - Ultraschall Sensoren {0} ---------------".format(Version))
 
 
 #Variablen definieren
