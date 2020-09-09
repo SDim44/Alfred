@@ -146,10 +146,11 @@ try:
         
         #Variablen festlegen
         Mode = mode() #Mode auslesen
+        sig = Mode
         wall = distance.wall() # Ultraschallsensoren auslesen
-        if Mode == "1":
+        if sig == "1":
             pixysig = pixy.get(1)
-        elif Mode == "2":
+        elif sig == "2":
             pixysig = pixy.get(2)
 
         
