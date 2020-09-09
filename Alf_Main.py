@@ -138,8 +138,8 @@ def everyloop():
 
     #if pixysig ==
         #set_emotion(r.gif)
-
-    return Mode, pixysig, wall
+    temp=[Mode, pixysig, wall]
+    return temp
 
 
 
