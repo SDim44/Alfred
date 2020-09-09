@@ -229,24 +229,20 @@ try:
 
 #--------------------------------------------------------------------------------
 #Emotionen anzeigen
-        logging.info("\n{0}".format(pixysig))
+        
 
         if wall == True:
             #set_emotion(3.gif)
             logging.info("----> Wall detected!"
-
+        
+        logging.info("\n{0}".format(pixysig))
         #if pixysig ==
             #set_emotion(r.gif)
 
 
 #--------------------------------------------------------------------------------
 # Exceptions
-
-
-
-
 except KeyboardInterrupt:
     led.off(1)
     led.off(2)
     GPIO.cleanup()
-    
