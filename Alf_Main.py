@@ -24,6 +24,7 @@ import Alf_LED as led
 
 #--------------------------------------------------------------------------------
 #Variablen
+global logfile
 logfile = 'logs/Alf_Main.log'
 global prev_mode
 prev_mode = "0"
@@ -77,7 +78,6 @@ def set_emotion(num):
 
 #--------------------------------------------------------------------------------   
 def systemcheck():
-    global logfile
     logging.info("----Systemcheck wird durchgefuehrt----")
     
     #Tool ueberpruefen
