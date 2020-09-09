@@ -85,14 +85,14 @@ def systemcheck():
     
     #------------
     
-    try:
-        logging.info("----> Alte logfiles entfernen")
-        for root, dirs, files in os.walk("logs/"):
-            for file in files:
-                os.remove(os.path.join(root, file))
-                os.mknod(os.path.join(root, file))
-    except:
-        logging.warning("!!! Tool check faild")
+    #try:
+        #logging.info("----> Alte logfiles entfernen")
+        #for root, dirs, files in os.walk("logs/"):
+        #    for file in files:
+        #        os.remove(os.path.join(root, file))
+        #        os.mknod(os.path.join(root, file))
+    #except:
+        #logging.warning("!!! Tool check faild")
     
     #------------
     
