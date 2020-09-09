@@ -58,7 +58,15 @@ def mode():
         logging.error("!!! Mode kann nicht ausgelesen werden!")
 
 #--------------------------------------------------------------------------------
+#Modus in Main aendern
+def setmode(num): 
+    wert = str(num)
+    config = open("mode.conf","w")
+    config.write(wert)
+    config.close
 
+#--------------------------------------------------------------------------------
+#Check ob Modus seit dem letztem durchlauf geaendert wurde
 def mod_changed(m):
     global prev_mode
 
@@ -70,7 +78,7 @@ def mod_changed(m):
         return True
 
 #--------------------------------------------------------------------------------
-
+#Emotion aendern
 def set_emotion(num): 
     wert = str(num)
     config = open("emotion.conf","w")
@@ -79,23 +87,31 @@ def set_emotion(num):
 
 #--------------------------------------------------------------------------------   
 def systemcheck():
+
     logging.info("----Systemcheck wird durchgefuehrt----")
     print("----Systemcheck wird durchgefuehrt----")
     
+    #------------
     #Tool ueberpruefen
+
     logging.info("----> Ladescreen erzeugen")
     set_emotion("99.gif")
     
     #------------
+    #Start Mode festlegen
     
+    setmode(3)
+
+    #------------
     try:
         toolcheck = tool.get()
         logging.info("----> Tool OK: {0}".format(toolcheck))    
     except:
         logging.warning("!!! Tool check faild")
     
-    
+    #------------
     #Systemcheck beenden (Zwinkern)
+    
     set_emotion("1.gif")
     time.sleep(1)
     set_emotion("2.gif")
