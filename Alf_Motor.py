@@ -16,8 +16,9 @@ GPIO.setwarnings(False)
 
 #Logging starten
 Version = "V1.0"
-logging.basicConfig(filename='logs/Alf_Motor.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename='logs/Alf_Main.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.debug("----------- Starte Alfred Modul - Motorsteuerung {0} ---------------".format(Version))
+
 
 
 #Variablen definieren
