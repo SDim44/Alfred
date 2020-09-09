@@ -27,7 +27,7 @@ GPIO.setwarnings(False)
 
 #-----------------------------------------------------------------------------------
 #Logging config
-Version = "V1.0"
+Version = "V0.2"
 logging.basicConfig(filename='logs/Alf_Verfolgung.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.debug("----------- Starte Alfred Modul - Verfolgung {0} ---------------".format(Version))
 
