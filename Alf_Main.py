@@ -150,7 +150,7 @@ try:
  
 #--------------------------------------------------------------------------------
 # Mode 1  
-        elif Mode == "1":
+        if Mode == "1":
             logging.info("Mode 1 - Objekt 1")
             try:
                 pixysig = pixy.get(1)          
