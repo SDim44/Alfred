@@ -29,8 +29,9 @@ GPIO.setwarnings(False)
 
 #Start Logging
 Version = "V1.0"
+lofile = 'logs/Alf_Speech.log'
 logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-logging.debug("----------- Starte Alfred {0} ---------------".format(Version))
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)logging.info("----------- Starte Alfred Speech {0} ---------------".format(Version))
  
 #------------------------------------------------------------------------------------------------- 
 
@@ -41,7 +42,7 @@ def mode():
     config.close()
     #set = int(set)
     return set
-    logging.debug("mode.conf wird ausgelesen: {0}".format(set))
+    logging.info("mode.conf wird ausgelesen: {0}".format(set))
 
 def mod_changed(m):
     global prev_mode
@@ -57,12 +58,12 @@ def mod_changed(m):
 def say(speech):
   
     call(["espeak",speech])
-    logging.debug("Alfred: {0}".format(speech))
+    logging.info("Alfred: {0}".format(speech))
 
 def r2d2(file):
     path = "DATA/sounds/" + file
     call(["aplay",path])
-    logging.debug("Alfred: r2d2 - {0}".format(file))
+    logging.info("Alfred: r2d2 - {0}".format(file))
 
 #------------------------------------------------------------------------------------------------- 
 
