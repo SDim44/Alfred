@@ -9,19 +9,10 @@
 #       Laufzeitfehler behoben und logging erweitert
 #
 
-Version = "V0.2"
 
-
-#Start Logging
+#Libarys
 import time
 import logging
-logfile = 'logs/Alf_Main.log'
-logging.basicConfig(filename=logfile,level=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
-logging.info("----------- Starte Alfred {0} ---------------".format(Version))
-
-#--------------------------------------------------------------------------------
-#Libarys
 import os
 import RPi.GPIO as GPIO
 import Alf_Motor as engin
@@ -33,13 +24,21 @@ import Alf_LED as led
 
 #--------------------------------------------------------------------------------
 #Variablen
-
+global logfile
+logfile = 'logs/Alf_Main.log'
 global prev_mode
 prev_mode = "0"
 
 #--------------------------------------------------------------------------------
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
+
+#--------------------------------------------------------------------------------
+#Start Logging
+Version = "V0.2"
+logging.basicConfig(filename=logfile,level=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
+logging.info("----------- Starte Alfred {0} ---------------".format(Version))
 
 
 #--------------------------------------------------------------------------------
