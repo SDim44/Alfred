@@ -96,12 +96,15 @@ def systemcheck():
 
     logging.info("----> Ladescreen erzeugen")
     set_emotion("99.gif")
+    time.sleep(1)
     
     #------------
-    #Start Mode festlegen
+    #Startmodus festlegen
     
+    logging.info("----> Startmodus festlegen")
     setmode(3)
-
+    time.sleep(1)
+    
     #------------
     try:
         toolcheck = tool.get()
@@ -139,16 +142,27 @@ try:
     print("------Alfred is running!------")
     while True: 
         
-        Mode = mode()
         time.sleep(0.2) #Verhindert Laufzeitfehler
+        
+        #Variablen festlegen
+        Mode = mode() #Mode auslesen
+        wall = distance.wall() # Ultraschallsensoren auslesen
+        pixysig1 = pixy.get(1)
+        pixysig2 = pixy.get(2)
+
+
+        logging.info("\nWall detected: {0}".format(wall))
+        if 
+        set_emotion()
+        
+
  
 #--------------------------------------------------------------------------------
 # Mode 1  
         if Mode == "1":
             logging.info("Mode 1 - Objekt 1")
             try:          
-                logging.info("\n{0}".format(pixy.get(1)))
-                logging.info("\nWall detected: {0}".format(distance.wall()))
+                logging.info("\n{0}".format(pixysig1))
                 alf.hunt(1)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
@@ -165,8 +179,7 @@ try:
         elif Mode == "2":
             logging.info("Mode 2 - Objekt 2")
             try:
-                logging.info("\n{0}".format(pixy.get(2)))
-                logging.info("\nWall detected: {0}".format(distance.wall()))
+                logging.info("\n{0}".format(pixysig2))
                 alf.hunt(2)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
@@ -183,7 +196,7 @@ try:
             try:
                 engin.move(0,0,0,0)
             except:
-                logging.error("----Fehler ist aufgetreten!")
+                logging.error("----Fehler ist aufgetreten! --> loop")
             
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt   
                 try:
