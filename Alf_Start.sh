@@ -1,6 +1,12 @@
 #!/bin/bash
+cd /home/pi/Alfred & git pull
+sleep 3
 sudo chmod +x /home/pi/Alfred
-sleep 2
+sudo chmod +x /home/pi/Alfred/Alf_Start.sh
+sudo chmod +x /home/pi/Alfred/Alf_Stop.sh
+sudo chmod +x /home/pi/Alfred/Alf_Main.py
+echo Alfred ist up-to-date
+
 echo "99.gif" > emotion.conf
 sleep 2
 lxterminal --title="Alfred GUI" --working-directory="/home/pi/Alfred" --command bash -c "python2.7 Alf_GUI.py; bash" &
