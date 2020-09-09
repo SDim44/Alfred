@@ -7,4 +7,4 @@ sudo chmod +x /home/pi/Alfred/Alf_Start.sh
 sudo chmod +x /home/pi/Alfred/Alf_Stop.sh
 sudo chmod +x /home/pi/Alfred/Alf_Main.py
 
-echo "Alfred ist up-to-date"
+lxterminal --command "echo Alfred ist up-to-date"
