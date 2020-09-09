@@ -1,4 +1,4 @@
-#Alfred starten
+#!/bin/bash
 sudo chmod +x /home/pi/Alfred
 sleep 2
 echo "99.gif" > emotion.conf
