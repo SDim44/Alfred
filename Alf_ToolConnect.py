@@ -18,7 +18,7 @@ import logging
 
 
 #Start Logging
-Version = "V2.0"
+Version = "V0.2"
 logging.basicConfig(filename='logs/Alf_ToolConnect.log',level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.info("----------- Starte Alfred Modul - Tool Connector {0} ---------------".format(Version))
 
