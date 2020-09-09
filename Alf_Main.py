@@ -211,6 +211,7 @@ try:
 # Exceptions
 
 except KeyboardInterrupt:
-    GPIO.cleanup()
     led.off(1)
     led.off(2)
+    GPIO.cleanup()
+    
