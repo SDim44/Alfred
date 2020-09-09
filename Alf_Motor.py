@@ -18,7 +18,7 @@ GPIO.setwarnings(False)
 Version = "V1.0"
 logfile = 'logs/Alf_Main.log'
 logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
-#logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
+logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred Modul - Motorsteuerung {0} ---------------".format(Version))
 
 
