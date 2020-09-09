@@ -49,24 +49,20 @@ GPIO.setup(B2, GPIO.OUT)
 #Funktion zum einschalten (x, 1=ein 0=aus --- R,G,B) -> Farbe einstellen (0-100)
 def on(LED,R=0,G=0,B=0):
     if LED == 1:
-        GPIO.setmode(GPIO.BCM)
         GPIO.output (R1,R)
         GPIO.output (G1,G)
         GPIO.output (B1,B)
     if LED == 2:
-        GPIO.setmode(GPIO.BCM)
         GPIO.output (R2,R)
         GPIO.output (G2,G)
         GPIO.output (B2,B) 
 
 def off(LED):
     if LED == 1:
-        GPIO.setmode(GPIO.BCM)
         GPIO.output (R1,0)
         GPIO.output (G1,0)
         GPIO.output (B1,0)
     if LED == 2:
-        GPIO.setmode(GPIO.BCM)
         GPIO.output (R2,0)
         GPIO.output (G2,0)
         GPIO.output (B2,0)
