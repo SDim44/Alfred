@@ -79,8 +79,8 @@ def mod_changed(m):
 
 #--------------------------------------------------------------------------------
 #Emotion aendern
-def set_emotion(num): 
-    wert = str(num)
+def set_emotion(file): 
+    wert = str(file)
     config = open("emotion.conf","w")
     config.write(wert)
     config.close
@@ -147,13 +147,21 @@ try:
         #Variablen festlegen
         Mode = mode() #Mode auslesen
         wall = distance.wall() # Ultraschallsensoren auslesen
-        pixysig1 = pixy.get(1)
-        pixysig2 = pixy.get(2)
+        if Mode == "1":
+            pixysig = pixy.get(1)
+        elif Mode == "2"
+            pixysig = pixy.get(2)
 
+        
+        logging.info("\n{0}".format(pixysig))
 
-        logging.info("\nWall detected: {0}".format(wall))
-        if 
-        set_emotion()
+        if wall == True:
+            set_emotion(3.gif)
+            logging.info("----> Wall detected!"
+
+        #if pixysig ==
+            #set_emotion(r.gif)
+
         
 
  
@@ -162,7 +170,6 @@ try:
         if Mode == "1":
             logging.info("Mode 1 - Objekt 1")
             try:          
-                logging.info("\n{0}".format(pixysig1))
                 alf.hunt(1)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
@@ -179,7 +186,7 @@ try:
         elif Mode == "2":
             logging.info("Mode 2 - Objekt 2")
             try:
-                logging.info("\n{0}".format(pixysig2))
+                logging.info("\n{0}".format(pixysig))
                 alf.hunt(2)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
