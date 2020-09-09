@@ -276,7 +276,7 @@ def main():
     btn_arst = Button(root, text="Restart Alfred", width=10, height=2,command=alf_rst) .grid(row=5, column=5, padx=0, pady=5, rowspan=2)
     btn_asht = Button(root, text="Shutdown Alfred", width=10, height=2,command=alf_sht) .grid(row=7, column=5, padx=0, pady=5, rowspan=2)
     
-    Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=12, column=4, padx=30, pady=20, rowspan= 2, columnspan = 3)
+    Button(root, text="Zurueck", width=8, height=2, command=lift_emo, font="none 12 bold") .grid(row=12, column=5, padx=30, pady=20, rowspan= 2, columnspan = 3)
      
     
     emo.mainloop()
