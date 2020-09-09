@@ -146,7 +146,8 @@ try:
         
         #Variablen setzten
         Mode = mode() #Mode auslesen
-        wall = distance.wall() # Ultraschallsensoren auslesen     
+        wall = distance.wall() # Ultraschallsensoren auslesen
+        pixysig = "0"  
  
 #--------------------------------------------------------------------------------
 # Mode 1  
