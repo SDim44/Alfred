@@ -39,6 +39,7 @@ Version = "V0.2"
 logging.basicConfig(filename=logfile,level=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred {0} ---------------".format(Version))
+print("----------- Starte Alfred {0} ---------------".format(Version))
 
 
 #--------------------------------------------------------------------------------
@@ -79,6 +80,7 @@ def set_emotion(num):
 #--------------------------------------------------------------------------------   
 def systemcheck():
     logging.info("----Systemcheck wird durchgefuehrt----")
+    print("----Systemcheck wird durchgefuehrt----")
     
     #Tool ueberpruefen
     logging.info("----> Ladescreen erzeugen")
@@ -117,7 +119,8 @@ try:
 #--------------------------------------------------------------------------------
 #Schleife
 
-    logging.info("------START------")
+    logging.info("------Alfred is running!------")
+    print("------Alfred is running!------")
     while True: 
         
         Mode = mode()
