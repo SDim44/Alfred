@@ -119,13 +119,12 @@ try:
             try:          
                 #print("\n{0}".format(pixy.get(1)))
                 #print("\nWall detected: {0}".format(distance.wall()))
-                led.on(1,0,100,0)
                 alf.hunt(1)
             except:
                 print("----Fehler ist aufgetreten!")
             
             if mod_changed(Mode):
-                pass
+                led.on(1,0,100,0)
 
 #--------------------------------------------------------------------------------
 # Mode 2              
@@ -134,25 +133,23 @@ try:
             try:
                 #print("\n{0}".format(pixy.get(2)))
                 #print("\nWall detected: {0}".format(distance.wall()))
-                led.on(1,100,0,0)
                 alf.hunt(2)
             except:
                 print("----Fehler ist aufgetreten!")
             
             if mod_changed(Mode):
-                pass
+                led.on(1,100,0,0)
 
 #--------------------------------------------------------------------------------
 # Mode 3             
         elif Mode == "3": #Tool Mode
             print("Mode 3 - Toolmodus")
             try:
-                led.on(1,0,0,100)
                 engin.move(0,0,0,0)
             except:
                 print("----Fehler ist aufgetreten!")
             if mod_changed(Mode):    
-                pass                    
+                led.on(1,0,0,100)                  
 
 #--------------------------------------------------------------------------------
 # Mode 4 (keine Funktion)             
