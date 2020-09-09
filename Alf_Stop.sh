@@ -2,4 +2,4 @@
 pkill -f Alf_GUI.py
 pkill -f Alf_Speech.py
 sudo pkill -f Alf_Main.py
-echo "0" > emotin.conf
+echo "0.gif" > emotion.conf
