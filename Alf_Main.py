@@ -126,10 +126,10 @@ try:
 #--------------------------------------------------------------------------------
 # Mode 1  
         if Mode == "1":
-            #logging.info("Mode 1 - Objekt 1")
+            logging.info("Mode 1 - Objekt 1")
             try:          
-                print("\n{0}".format(pixy.get(1)))
-                print("\nWall detected: {0}".format(distance.wall()))
+                logging.info("\n{0}".format(pixy.get(1)))
+                logging.info("\nWall detected: {0}".format(distance.wall()))
                 alf.hunt(1)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
@@ -144,10 +144,10 @@ try:
 #--------------------------------------------------------------------------------
 # Mode 2              
         elif Mode == "2":
-            print("Mode 2 - Objekt 2")
+            logging.info("Mode 2 - Objekt 2")
             try:
-                print("\n{0}".format(pixy.get(2)))
-                print("\nWall detected: {0}".format(distance.wall()))
+                logging.info("\n{0}".format(pixy.get(2)))
+                logging.info("\nWall detected: {0}".format(distance.wall()))
                 alf.hunt(2)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
@@ -160,7 +160,7 @@ try:
 #--------------------------------------------------------------------------------
 # Mode 3             
         elif Mode == "3": #Tool Mode
-            print("Mode 3 - Toolmodus")
+            logging.info("Mode 3 - Toolmodus")
             try:
                 engin.move(0,0,0,0)
             except:
@@ -175,7 +175,7 @@ try:
 #--------------------------------------------------------------------------------
 # Mode 4 (keine Funktion)             
         elif Mode == "4": #Test Mode
-            print("\n\nMode 4 - Testmodus")
+            logging.info("\n\nMode 4 - Testmodus")
             try:
                 led.off(1)
                 led.on(2,100,0,0)
@@ -190,7 +190,7 @@ try:
 #--------------------------------------------------------------------------------
 # Mode 5  (keine Funktion)      
         elif Mode == "5": #Face detection + follow
-            print("\n\nMode 5 - Testmodus")
+            logging.info("\n\nMode 5 - Testmodus")
             try:
                 led.off(1)
                 led.on(2,100,0,0)
