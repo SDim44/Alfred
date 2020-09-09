@@ -24,7 +24,6 @@ import Alf_LED as led
 
 #--------------------------------------------------------------------------------
 #Variablen
-global logfile
 logfile = 'logs/Alf_Main.log'
 global prev_mode
 prev_mode = "0"
@@ -83,16 +82,6 @@ def systemcheck():
     #Tool ueberpruefen
     logging.info("----> Ladescreen erzeugen")
     set_emotion("99.gif")
-    
-    #------------
-    
- #   try:
- #       logging.info("----> Alte logfiles entfernen")
- #       for root, dirs, files in os.walk("logs/"):
- #           for file in files:
- #               os.remove(os.path.join(root, file))
- #   except:
- #       logging.warning("!!! Tool check faild")
     
     #------------
     
