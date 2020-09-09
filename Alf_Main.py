@@ -233,7 +233,7 @@ try:
 
         if wall == True:
             #set_emotion(3.gif)
-            logging.info("----> Wall detected!"
+            logging.info("----> Wall detected!")
         
         logging.info("\n{0}".format(pixysig))
         #if pixysig ==
