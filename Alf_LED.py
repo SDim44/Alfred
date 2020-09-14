@@ -14,8 +14,8 @@ import logging
 #--------------------------------------------------------------------------------
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
-#--------------------------------------------------------------------------------
 
+#--------------------------------------------------------------------------------
 #Logging starten
 Version = "V1.0"
 logfile = 'logs/Alf_Main.log'
@@ -23,6 +23,7 @@ logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred Modul - LED {0} ---------------".format(Version))
 
+#--------------------------------------------------------------------------------
 #Variablen definieren
 R1 = 22
 G1 = 17
@@ -31,6 +32,7 @@ R2 = 26
 G2 = 18
 B2 = 12
 
+#--------------------------------------------------------------------------------
 #Pins definieren
 GPIO.setmode(GPIO.BCM)
 
@@ -45,7 +47,7 @@ GPIO.setup(R2, GPIO.OUT)
 GPIO.setup(G2, GPIO.OUT)
 GPIO.setup(B2, GPIO.OUT)
 
-
+#--------------------------------------------------------------------------------
 #Funktion zum einschalten (x, 1=ein 0=aus --- R,G,B) -> Farbe einstellen (0-100)
 def on(LED,R=0,G=0,B=0):
     if LED == 1:
