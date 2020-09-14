@@ -65,7 +65,7 @@ def say(speech):
 
 def r2d2(file):
     path = "DATA/sounds/" + file
-    call(['aplay ',path])
+    call(["aplay ",path])
     logging.info("Alfred: r2d2 - {0}".format(file))
 
 
