@@ -3,7 +3,7 @@
 #
 #       Stefan Dimnik, 28.07.2020
 #
-#       Dieses Programm steuert die Soundausgabe des Roboters.
+#       Dieses Programm steuert die Soundausgabe von Alfred.
 
 
 #Libarys
@@ -19,22 +19,25 @@ import Alf_ToolConnect as tool
 import Alf_LED as led
 from subprocess import call
 
+#------------------------------------------------------------------------------------------------- 
 #Variablen
 global prev_mode
 prev_mode = "0"
 
+#------------------------------------------------------------------------------------------------- 
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
 
+#------------------------------------------------------------------------------------------------- 
 #Start Logging
 Version = "V1.0"
 logfile = 'logs/Alf_Speech.log'
 logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred Speech {0} ---------------".format(Version))
- 
-#------------------------------------------------------------------------------------------------- 
 
+
+#------------------------------------------------------------------------------------------------- 
 #Funktion - Modus auslesen
 def mode():
     config = open("mode.conf")
@@ -65,9 +68,8 @@ def r2d2(file):
     call(["aplay",path])
     logging.info("Alfred: r2d2 - {0}".format(file))
 
+
 #------------------------------------------------------------------------------------------------- 
-
-
 #Main
 
 try:
