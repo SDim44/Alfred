@@ -118,7 +118,7 @@ def systemcheck():
     set_emotion("AKMU_009_3.gif")
     time.sleep(1)
     set_emotion("AKZMM_005_2.gif")
-    set_mode(3)
+    setmode(3)
     time.sleep(1)
     set_emotion("AKMU_009_3.gif")
 
