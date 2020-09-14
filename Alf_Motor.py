@@ -3,7 +3,7 @@
 #
 #       Stefan Dimnik, 14.03.2020
 #
-#       Dieses Programm sendet Signale an die Motorsteuerung (H-Bridge).
+#       Mit diesem Programm wird die Motorsteuerung (H-Bridge) angesprochen.
 
 
 #Libarys einbinden
@@ -14,6 +14,7 @@ import logging
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
 
+#--------------------------------------------------------------------------------
 #Logging starten
 Version = "V1.0"
 logfile = 'logs/Alf_Main.log'
@@ -22,7 +23,7 @@ logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred Modul - Motorsteuerung {0} ---------------".format(Version))
 
 
-
+#--------------------------------------------------------------------------------
 #Variablen definieren
 LIN1 = 16
 LIN2 = 20
@@ -32,7 +33,7 @@ RIN1 = 24
 RIN2 = 25
 REN = 23
 
-
+#--------------------------------------------------------------------------------
 #Pins definieren
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LIN1,GPIO.OUT)
@@ -53,6 +54,8 @@ PWMR = GPIO.PWM(REN,1000)
 PWML.start(0)
 PWMR.start(0)
 
+
+#--------------------------------------------------------------------------------
 #Funktion zur Ansteuerung der Motoren --- L=Links R=Rechts --- (x,x -> 0=Stop 1=forwaerts 2=rueckwaerts --- x,x) SpeedL,SpeedR=Geschwindigkeit L=linker R=rechter Motor ((0 - 100))
 def move(L=0,R=0,SpeedL=50,SpeedR=50):
     
