@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Comment=Update Alfred
-Name=Alfred
+Name=Update Alfred
 Exec=sudo /etc/init.d/Alfred update
 Icon=/home/pi/Alfred/DATA/design/update.png
 Terminal=false

@@ -15,10 +15,11 @@ grep -q -F 'i2c-bcm2708' /etc/modules ||  echo 'i2c-bcm2708' | sudo tee -a /etc/
 
 echo ----------------------------------------------
 echo -> configure /boot/config.txt
-grep -q -F '#Alfred Settings:' /boot/config.txt ||  echo '#Alfred Settings:' | sudo tee -a /boot/config.txt
+
+grep -q -F '# Alfred Settings:' /boot/config.txt ||  echo '#Alfred Settings:' | sudo tee -a /boot/config.txt
 grep -q -F 'dtparam=i2c1=on' /boot/config.txt ||  echo 'dtparam=i2c1=on' | sudo tee -a /boot/config.txt
 grep -q -F 'dtparam=i2c_arm=on' /boot/config.txt ||  echo 'dtparam=i2c_arm=on' | sudo tee -a /boot/config.txt
-grep -q -F 'Lcd_rotate=2' /boot/config.txt ||  echo 'Lcd_rotate=2' | sudo tee -a /boot/config.txt
+grep -q -F 'lcd_rotate=2' /boot/config.txt ||  echo 'lcd_rotate=2' | sudo tee -a /boot/config.txt
 
 
 echo ----------------------------------------------
@@ -57,9 +58,9 @@ sudo cp /home/pi/Alfred/setup/Alfred_update.desktop /usr/share/raspi-ui-override
 echo ----------------------------------------------
 echo -> Set Permissions
 sudo chmod +x /home/pi/Alfred/Alf_Update.sh
-sudo chmod +x /home/pi/Alfred /Alf_Start.sh
-sudo chmod +x /home/pi/Alfred /Alf_Stop.sh
-sudo chmod +x /home/pi/Alfred /Alf_Main.py
+sudo chmod +x /home/pi/Alfred/Alf_Start.sh
+sudo chmod +x /home/pi/Alfred/Alf_Stop.sh
+sudo chmod +x /home/pi/Alfred/Alf_Main.py
 
 
 echo ----------------------------------------------

@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Comment=Stop Alfred
-Name=Alfred
+Name=Stop Alfred
 Exec=sudo /etc/init.d/Alfred stop
 Icon=/home/pi/Alfred/DATA/design/stop.png
 Terminal=false

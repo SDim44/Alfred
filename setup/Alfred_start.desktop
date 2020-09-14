@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Comment=Start Alfred
-Name=Alfred
+Name=Start Alfred
 Exec=sudo /etc/init.d/Alfred start
 Icon=/home/pi/Alfred/DATA/design/Alf_Logo_randlos_s_auf_t.png
 Terminal=false
