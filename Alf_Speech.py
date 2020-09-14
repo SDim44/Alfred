@@ -17,10 +17,6 @@ global prev_mode
 prev_mode = "0"
 
 #------------------------------------------------------------------------------------------------- 
-#GPIO Warnungen deaktivieren
-GPIO.setwarnings(False)
-
-#------------------------------------------------------------------------------------------------- 
 #Start Logging
 Version = "V1.0"
 logfile = 'logs/Alf_Speech.log'
