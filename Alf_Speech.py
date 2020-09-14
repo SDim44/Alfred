@@ -9,14 +9,6 @@
 #Libarys
 import time
 import logging
-import subprocess
-import RPi.GPIO as GPIO
-import Alf_Motor as engin
-import Alf_Verfolgung as alf
-import Alf_Ultraschall as distance
-import Alf_Pixy2 as pixy
-import Alf_ToolConnect as tool
-import Alf_LED as led
 from subprocess import call
 
 #------------------------------------------------------------------------------------------------- 
@@ -64,8 +56,8 @@ def say(speech):
     logging.info("Alfred: {0}".format(speech))
 
 def r2d2(file):
-    path = "DATA/sounds/" + file
-    call(["aplay ",path])
+    cmd = 'DATA/sounds/' + file
+    call(["aplay",cmd])
     logging.info("Alfred: r2d2 - {0}".format(file))
 
 
