@@ -6,7 +6,7 @@
 #       Dieses Programm uebernimmt die Steuerung der Roboter-Platform.
 
 
-
+#--------------------------------------------------------------------------------
 #Libarys einbinden
 from __future__ import print_function
 import pixy 
