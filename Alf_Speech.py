@@ -89,7 +89,7 @@ try:
             
         elif Mode == "3": #Tool Mode
             if mod_changed(Mode):    
-                say("Tool Mode")                      
+                r2d2("toolmode.wav")                      
 
         elif Mode == "5": #Face detection + follow
             if mod_changed(Mode):
