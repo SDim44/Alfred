@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Update herunterladen
-lxterminal --title="Alfred Update" --working-directory="/home/pi/Alfred" --command bash -c "git pull; bash" &
+cd /home/pi/Alfred & git pull
 
 # Berechtigungen setzten
 sudo chmod +x /home/pi/Alfred
