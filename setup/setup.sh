@@ -30,7 +30,7 @@ cd /home/pi/jarvis & ./jarvis.sh
 
 echo ----------------------------------------------
 echo -> install Matchbox Keyboard
-sudo apt-get install matchbox-keyboard
+sudo apt-get -y install matchbox-keyboard
 
 
 echo ----------------------------------------------
