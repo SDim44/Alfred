@@ -102,7 +102,6 @@ def systemcheck():
     #Startmodus festlegen
     
     logging.info("----> Startmodus festlegen")
-    setmode(3)
     time.sleep(1)
     
     #------------
@@ -119,6 +118,7 @@ def systemcheck():
     set_emotion("AKMU_009_3.gif")
     time.sleep(1)
     set_emotion("AKZMM_005_2.gif")
+    set_mode(3)
     time.sleep(1)
     set_emotion("AKMU_009_3.gif")
 
