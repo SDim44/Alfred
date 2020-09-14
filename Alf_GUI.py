@@ -165,6 +165,7 @@ def build():
     trow=2
     tcolumn=2
     if tool.get():
+        tname=[0,0,0,0]
         widget=0
         var = tool.get()
         tname=var[0]
