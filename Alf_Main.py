@@ -115,11 +115,11 @@ def systemcheck():
     #------------
     #Systemcheck beenden (Zwinkern)
     
-    set_emotion("1.gif")
+    set_emotion("AKMU_009_3.gif")
     time.sleep(1)
-    set_emotion("2.gif")
+    set_emotion("AKZMM_005_2.gif")
     time.sleep(1)
-    set_emotion("1.gif")
+    set_emotion("AKMU_009_3.gif")
 
 
 #--------------------------------------------------------------------------------
