@@ -13,9 +13,11 @@ import RPi.GPIO as GPIO
 import time
 import logging
 
+#------------------------------------------------------------------------------------------------- 
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
 
+#------------------------------------------------------------------------------------------------- 
 #Logging starten
 Version = "V0.2" #Funktioniert nicht - Sensor scheinbar defekt
 logfile = 'logs/Alf_Main.log'
@@ -24,11 +26,13 @@ logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred Modul - Ultraschall Sensoren {0} ---------------".format(Version))
 
 
+#------------------------------------------------------------------------------------------------- 
 #Variablen definieren
 MAXDISTANCE = 15
 
-
+#------------------------------------------------------------------------------------------------- 
 #Pins definieren
+
 US1 = 5,6 #Trigger,Echo
 US2 = 13,19 #Trigger,Echo
 
@@ -38,7 +42,9 @@ GPIO.setup(US1[1],GPIO.IN)  #Echo
 GPIO.setup(US2[0],GPIO.OUT) #Trigger
 GPIO.setup(US2[1],GPIO.IN)  #Echo
 
+#------------------------------------------------------------------------------------------------- 
 #Funktion zur durchfuehrung der Messung
+
 def distance(GPIO_TRIGGER,GPIO_ECHO):
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
@@ -67,8 +73,10 @@ def distance(GPIO_TRIGGER,GPIO_ECHO):
     return distance  
     logging.debug("Trigger: {0}   Echo: {1}  - Distance gemessen: {2}".format(GPIO_TRIGGER,GPIO_ECHO,distance))
 
-        
+
+#-------------------------------------------------------------------------------------------------       
 #Funktion zum Auslesen
+
 def get(Ultrasonic):
 
     if Ultrasonic == 1:
@@ -79,6 +87,10 @@ def get(Ultrasonic):
     DistanceOut = int(DistanceOut)
     return(DistanceOut)
     logging.debug("Rueckgabewert Sensor {0} : {1}".format(Ultrasonic,DistanceOut))
+
+
+#------------------------------------------------------------------------------------------------- 
+#Funktion zum Erkennen von Hindernissen 
 
 def wall(cap=MAXDISTANCE):
     if cap > distance(US1[0],US1[1]) or cap > distance(US2[0],US2[1]):
