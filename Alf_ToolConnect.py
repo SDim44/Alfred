@@ -16,7 +16,7 @@ import serial
 import time
 import logging
 
-
+#------------------------------------------------------------------------------------------------- 
 #Start Logging
 Version = "V0.2"
 logfile = 'logs/Alf_GUI.log'
@@ -24,6 +24,7 @@ logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred Modul - Tool Connector {0} ---------------".format(Version))
 
+#------------------------------------------------------------------------------------------------- 
 #Serielle Verbindung aufbauen
 try:
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
@@ -32,14 +33,14 @@ except:
     logging.info("!!! No Tool detected!")
     
 
-
-
+#------------------------------------------------------------------------------------------------- 
 #Funktion - Tool Ansteuern - Hier kann eine Funktion am Arduino ausgefuehrt werden. Ein webrequest wird gesendet - num ist die Nummer der Funktion. (Nach diesem Befehl muss ein do() ausgefuehrt werden)
 def set(command):
     ser.write("{0}\n".format(command))
     logging.info("command wurde gesendet: {0}".format(command))
 
 
+#------------------------------------------------------------------------------------------------- 
 #Funktion - Tool Auslesen - Es wird die Zahl 99 and den Arduino gesendet, der Arduino sende daraufhin sein Spezifikationen. Diese werden hier ausgelesen und Zurueckgegeben.
 def get():
     #Serielle Verbindung aufbauen
