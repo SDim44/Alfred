@@ -5,11 +5,11 @@
 #
 #       Mit dieses Programm wird die Grafische Oberflaeche aufgerufen.
 # 
-#       V0.1 
+#       V0.1 - 09.03.2020
 #       Die Oberflaeche ist fuer einen Touchscreen ausgelegt.
 #       Manuelle Steuerung fuer Modus, Tool und Motoren wurde erstellt.
 #
-#       V0.2
+#       V0.2 - 07.09.2020
 #       Emotionen/Bild im Hauptfenster kann im Betrieb dynamisch angepasst werden
 
 #Libarys
@@ -39,7 +39,7 @@ command = {0,0,0}
 
 #---------------------------------------------------------------------------------------
 #Start Logging
-Version = "V0.1"
+Version = "V0.2"
 logfile = 'logs/Alf_GUI.log'
 logging.basicConfig(filename=logfile,level=logging.DEBUG ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
@@ -80,14 +80,16 @@ def getvalue2(swert):
     scvalue2 = str(swert)
     setcmd()
     return scvalue2
-    
+
+#---------------------------------------------------------------------------------------
 #Modus in Main aendern
 def setmode(num): 
     wert = str(num)
     config = open("mode.conf","w")
     config.write(wert)
     config.close
-    
+
+#---------------------------------------------------------------------------------------
 #exit function
 def restart():
     root.destroy()
@@ -115,7 +117,10 @@ def alf_rst():
         root.destroy()
         emo.destroy()
         os.system("./Alf_Stop.sh")
-    
+
+#---------------------------------------------------------------------------------------
+#Fenster wechseln
+
 def lift_emo():
     root.attributes("-fullscreen", False)
     emo.attributes("-fullscreen", True)
@@ -124,7 +129,9 @@ def lift_root():
     root.attributes("-fullscreen", True)
     emo.attributes("-fullscreen", False)
 
+#---------------------------------------------------------------------------------------
 #Config File lesen/aendern
+
 def read_emotionfile():
     config = open("emotion.conf")
     set = config.read()
@@ -134,6 +141,7 @@ def read_emotionfile():
     path = "DATA/emotions/" + set
     return path
 
+#---------------------------------------------------------------------------------------
 #Schleife um das Bild im Betrieb zu aendern 
 def update_image():
     global window
@@ -146,7 +154,8 @@ def update_image():
     window.after(1000, update_image)
 
 #---------------------------------------------------------------------------------------
-#tool menue  
+#Tool Menue erstellen
+
 def build():
     
     global emo
@@ -219,6 +228,7 @@ def build():
 
 #---------------------------------------------------------------------------------------
 #Main
+
 def main():
     
     global emo
@@ -250,14 +260,16 @@ def main():
     Label (root, text="Alfred - Steuerung", bg="white", fg="black", font="none 16 bold") .grid(row=1, column=0, padx=50,columnspan = 3)
     Label (root, text=datetime, bg="white", fg="black", font="none 12 bold") .grid(row=1, column=4, padx=0, columnspan = 2)
     
-    
-    ##Body
+    #---------------------------------------------------------------------------------------
+    #Body
     #1.Spalte - Modus wechseln
     Label (root, text="Modus", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=2, column=1, padx=0, pady=20)
     Button(root, text="Verfolgung", width=10, height=2, command= lambda: setmode(1)) .grid(row=3, column=1, padx=5, pady=5, rowspan=2)
     Button(root, text="Ladestation", width=10, height=2, command= lambda: setmode(2)) .grid(row=5, column=1, padx=5, pady=5, rowspan=2)
     Button(root, text="Tool-Modus", width=10, height=2, command= lambda: setmode(3)) .grid(row=7, column=1, padx=5, pady=5, rowspan=2)
     
+    #---------------------------------------------------------------------------------------
+    #Motoren manuell steuern
     Label (root, text="Motor", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=9, column=1, padx=0, pady=20)
     Button(root, text="STOP", width=10, height=1, command= lambda: engin.move(0,0,0,0)) .grid(row=10, column=1, padx=0, pady=0, rowspan=2)
     Button(root, text="D", width=10, height=1, command= lambda: engin.move(1,1,50,100)) .grid(row=10, column=2, padx=0, pady=0, rowspan=2)
@@ -271,6 +283,7 @@ def main():
     #3.Spalte - Ausgabe
     Label (root, text="System", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=2, column=4, padx=0, pady=0,columnspan = 2)
     
+    #---------------------------------------------------------------------------------------
     #Footer
     btn_rst = Button(root, text="Restart GUI", width=10, height=2,command=restart,) .grid(row=3, column=5, padx=0, pady=5, rowspan=2)
     #btn_sht = Button(root, text="Shutdown GUI", width=10, height=2,command=exit) .grid(row=5, column=5, padx=0, pady=5)
