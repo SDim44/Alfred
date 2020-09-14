@@ -2,7 +2,9 @@
 
 # Ladescreen setzten
 echo "99.gif" > emotion.conf
-sleep 2
+# Modus setzten
+echo "0" > mode.conf
+sleep 1
 
 #Programme starten
 lxterminal --title="Alfred GUI" --working-directory="/home/pi/Alfred" --command bash -c "python2.7 Alf_GUI.py; bash" &
