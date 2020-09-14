@@ -14,13 +14,13 @@ case "$1" in
         echo "Starte Alfred"
         cd /home/pi/Alfred
         ./Alf_Start.sh
-     
+        ;; 
     stop)
  #Aktion wenn stop uebergeben wird
         echo "Stoppe Alfred"
         cd /home/pi/Alfred
         ./Alf_Stop.sh
- 
+        ;;
     restart)
  #Aktion wenn restart uebergeben wird
         echo "Restarte Alfred"
@@ -28,12 +28,13 @@ case "$1" in
         ./Alf_Stop.sh
         sleep 2
         ./Alf_Start.sh
- 
+        ;;
     update)
 #Aktion wenn update uebergeben wird
         echo "Update Alfred"
         cd /home/pi/Alfred
         ./Alf_Update.sh
+        ;;
  *)
  #Standard Aktion wenn start|stop|restart nicht passen
  echo "(start|stop|restart)"

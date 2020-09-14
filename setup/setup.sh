@@ -57,6 +57,7 @@ sudo cp /home/pi/Alfred/setup/Alfred_update.desktop /usr/share/raspi-ui-override
 
 echo ----------------------------------------------
 echo -> Set Permissions
+sudo chmod +rwxr /etc/init.d/Alfred
 sudo chmod +x /home/pi/Alfred/Alf_Update.sh
 sudo chmod +x /home/pi/Alfred/Alf_Start.sh
 sudo chmod +x /home/pi/Alfred/Alf_Stop.sh
