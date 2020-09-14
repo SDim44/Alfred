@@ -114,7 +114,8 @@ def systemcheck():
     
     #------------
     #Systemcheck beenden (Zwinkern)
-    
+
+    time.sleep(1.5)
     set_emotion("AKMU_009_3.gif")
     time.sleep(1)
     set_emotion("AKZMM_005_2.gif")
@@ -233,7 +234,7 @@ try:
         
 
         if wall == True:
-            #set_emotion(3.gif)
+            set_emotion(AKZMM_004_1.gif)
             logging.info("----> Wall detected!")
         
         logging.info("\n{0}".format(pixysig))
