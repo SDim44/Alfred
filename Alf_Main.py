@@ -167,7 +167,9 @@ try:
         Mode = mode() #Mode auslesen
         print(Mode)
         try:
+            print("start Ultraschall")
             wall = distance.wall() # Ultraschallsensoren auslesen
+            print("stop Ultraschall")
         except:
             logging.info("----Fehler ist aufgetreten! --> Ultraschall")
             print("----Fehler ist aufgetreten! --> Ultraschall")
