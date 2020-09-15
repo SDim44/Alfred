@@ -49,11 +49,14 @@ def speech_changed(m):
 #Text als Sprache ausgeben
 def say(speech):
   
+    print(speech)
     call(["espeak",speech])
     logging.info("Alfred: {0}".format(speech))
 
 def r2d2(file):
+
     cmd = 'DATA/sounds/' + file
+    print(cmd)
     call(["aplay",cmd])
     logging.info("Alfred: r2d2 - {0}".format(file))
 
@@ -63,8 +66,6 @@ def r2d2(file):
 
 print("------START------")
 
-
-
 while True:
         
     Speech = speech()
@@ -72,8 +73,10 @@ while True:
     if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
                 try:
                     if name.find(".wav") != -1:
+                        print(Speech)
                         r2d2(Speech)
                     else:
+                        print(Speech)
                         say(Speech)
 
                 except:
@@ -103,8 +106,5 @@ while True:
 
 #    elif Mode == "0": #Startup
 #        say("Hallo, ich bin Alfred")
-#        time.sleep(1)
-#        temperature,pressure,humidity = temperatur.readBME280All()
-#        say("Die aktuelle Temperatur betregt ")
-#        say(temperature)
+#        
 
