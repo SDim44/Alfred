@@ -165,6 +165,7 @@ try:
         print("laeuft bei mir")
         #Variablen setzten
         Mode = mode() #Mode auslesen
+        print(Mode)
         try:
             wall = distance.wall() # Ultraschallsensoren auslesen
         except:
@@ -177,7 +178,7 @@ try:
 # Mode 1  
         if Mode == "1":
             logging.info("Mode 1 - Objekt 1")
-            print("Mode 1 - Objekt 1")
+            
             try:
                 pixysig = pixy.get(1)          
                 alf.hunt(1)
