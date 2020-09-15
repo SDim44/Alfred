@@ -138,7 +138,7 @@ def systemcheck():
         say(temperature)
     except:
         pass
-    
+    setmode(3)
 
 
 #--------------------------------------------------------------------------------
@@ -169,6 +169,7 @@ try:
             wall = distance.wall() # Ultraschallsensoren auslesen
         except:
             logging.info("----Fehler ist aufgetreten! --> Ultraschall")
+            print("----Fehler ist aufgetreten! --> Ultraschall")
             wall = False
         pixysig = "0"
  
