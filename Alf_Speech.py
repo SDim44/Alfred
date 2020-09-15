@@ -67,7 +67,8 @@ def r2d2(file):
 print("------START------")
 
 while True:
-        
+    time.sleep(0.2)
+    print("Auslesen-------")  
     Speech = speech()
 
     if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
