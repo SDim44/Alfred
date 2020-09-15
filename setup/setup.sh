@@ -24,9 +24,15 @@ grep -q -F 'lcd_rotate=2' /boot/config.txt ||  echo 'lcd_rotate=2' | sudo tee -a
 
 echo ----------------------------------------------
 echo -> install jarvis
-cd /home/pi & git clone https://github.com/alexylem/jarvis.git 
+cd /home/pi && git clone https://github.com/alexylem/jarvis.git 
 cd /home/pi/jarvis & ./jarvis.sh
 
+echo ----------------------------------------------
+echo -> install pixy2
+sudo apt-get -y install git libusb-1.0-0-dev g++ build-essential
+cd /home/pi && git clone https://github.com/charmedlabs/pixy2
+cd /home/pi/pixy2/scripts && ./build_libpixyusb2.sh
+cd /home/pi/pixy2/scripts && ./build_get_blocks_cpp_demo.sh
 
 echo ----------------------------------------------
 echo -> install Matchbox Keyboard
