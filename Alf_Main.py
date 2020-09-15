@@ -70,7 +70,7 @@ def setmode(num):
     config.close
 
 #--------------------------------------------------------------------------------
-#Modus in Main aendern
+#Sprachbefehle setzten
 def set_speech(text): 
     wert = str(text)
     config = open("speech.conf","w")
