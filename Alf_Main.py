@@ -107,7 +107,7 @@ def systemcheck():
     #Tool ueberpruefen
 
     logging.info("----> Ladescreen erzeugen")
-    set_emotion("AGZMU_001.gif")
+    set_emotion("AKZMM_001.gif")
     time.sleep(1)
     
     #------------
@@ -189,13 +189,22 @@ try:
                 print("\n{0}".format(pixysig))        
                 #alf.hunt(1)
 
-                set_emotion("AKMU_003_1.gif") #gerade
+                if timer>=BLINK and timer<=ACTIONTIME:
+                    set_emotion("AKZMM_004_1.gif")
+                else:
+                    set_emotion("AKMU_003_1.gif") #gerade
 
                 if pixysig[1] < 105: #rechts
-                    set_emotion("AKRU_003_1.gif")
+                    if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZMR_003.gif")
+                    else:
+                        set_emotion("AKRU_003_1.gif")
                 
                 elif pixysig[1] > 210: #links
-                    set_emotion("AKLU_003_1.gif")
+                    if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZML_003.gif")
+                    else:
+                        set_emotion("AKLU_003_1.gif")
 
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
