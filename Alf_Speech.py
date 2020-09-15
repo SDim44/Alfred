@@ -28,15 +28,15 @@ logging.info("----------- Starte Alfred Speech {0} ---------------".format(Versi
 
 #------------------------------------------------------------------------------------------------- 
 #Funktion - Modus auslesen
-def mode():
-    config = open("mode.conf")
+
+def speech():
+    config = open("speech.conf")
     set = config.read()
     config.close()
-    #set = int(set)
     return set
-    logging.info("mode.conf wird ausgelesen: {0}".format(set))
+    logging.info("speech.conf wird ausgelesen: {0}".format(set))
 
-def mod_changed(m):
+def speech_changed(m):
     global prev_mode
 
     if prev_mode == m:
@@ -61,41 +61,50 @@ def r2d2(file):
 #------------------------------------------------------------------------------------------------- 
 #Main
 
-try:
-    print("------START------")
+print("------START------")
+
+
+
+while True:
+        
+    Speech = speech()
+
+    if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
+                try:
+                    if name.find(".wav") != -1:
+                        r2d2(Speech)
+                    else:
+                        say(Speech)
+
+                except:
+                    logging.error("----Fehler ist aufgetreten! --> speech_changed")
 
     
 
-    while True:
-              
-        Mode = mode()
- 
-        if Mode == "1":
-            if mod_changed(Mode):
-                r2d2("verfolgung.wav")
+    
+#-------------------------------------------------------------------------------------------------- 
+    
+#    if Speech == "1":
+#        if mod_changed(Mode):
+#            r2d2("verfolgung.wav")
 
-            
-        elif Mode == "2": 
-            if mod_changed(Mode):
-                r2d2("ladestation.wav")
-            
-        elif Mode == "3": #Tool Mode
-            if mod_changed(Mode):    
-                r2d2("toolmode.wav")                      
+        
+#    elif Mode == "2": 
+#        if mod_changed(Mode):
+#            r2d2("ladestation.wav")
+        
+#    elif Mode == "3": #Tool Mode
+#        if mod_changed(Mode):    
+#            r2d2("toolmode.wav")                      
 
-        elif Mode == "5": #Face detection + follow
-            if mod_changed(Mode):
-                say("Trying to find Humans")
+#    elif Mode == "5": #Face detection + follow
+#        if mod_changed(Mode):
+#            say("Trying to find Humans")
 
-        elif Mode == "0": #Startup
-            say("Hallo, ich bin Alfred")
-            time.sleep(1)
-            temperature,pressure,humidity = temperatur.readBME280All()
-            say("Die aktuelle Temperatur betregt ")
-            say(temperature)
-
-
-
-except KeyboardInterrupt:
-    GPIO.cleanup()
+#    elif Mode == "0": #Startup
+#        say("Hallo, ich bin Alfred")
+#        time.sleep(1)
+#        temperature,pressure,humidity = temperatur.readBME280All()
+#        say("Die aktuelle Temperatur betregt ")
+#        say(temperature)
 
