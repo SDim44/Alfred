@@ -165,7 +165,8 @@ try:
         print("laeuft bei mir")
         #Variablen setzten
         Mode = mode() #Mode auslesen
-        wall = distance.wall() # Ultraschallsensoren auslesen
+        #wall = distance.wall() # Ultraschallsensoren auslesen
+        wall = False
         pixysig = "0"
  
 #--------------------------------------------------------------------------------
