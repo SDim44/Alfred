@@ -229,7 +229,7 @@ try:
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
 
-            if timer>=25 and timer<=30:
+            if timer>=25 and timer<=28:
                 set_emotion("AKZMM_005_1.gif")
             else:
                 set_emotion("AKMU_009_2.gif")
