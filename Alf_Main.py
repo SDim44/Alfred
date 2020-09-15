@@ -172,9 +172,11 @@ try:
 # Mode 1  
         if Mode == "1":
             logging.info("Mode 1 - Objekt 1")
+            print("Mode 1 - Objekt 1")
             try:
                 pixysig = pixy.get(1)          
                 alf.hunt(1)
+                print("\n{0}".format(pixysig))
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
             
@@ -257,7 +259,7 @@ try:
             logging.info("----> Wall detected!")
         
         logging.info("\n{0}".format(pixysig))
-        print(pixysig)
+        print("\n{0}".format(pixysig))
         #if pixysig ==
             #set_emotion(r.gif)
 
