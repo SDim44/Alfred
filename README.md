@@ -1,7 +1,8 @@
 # Alfred
 Raspberry houshold robot Prototype 
 
-FH Wiener Neustadt
+FH Wiener Neustadt Robotik Project
+
 
 # Dokumentation
 
