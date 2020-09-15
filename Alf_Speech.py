@@ -55,7 +55,6 @@ def say(speech):
 def r2d2(file):
 
     cmd = '/home/pi/Alfred/DATA/sounds/' + file
-    print(cmd)
     call(["aplay",cmd])
     logging.info("Alfred: r2d2 - {0}".format(file))
 
@@ -75,6 +74,7 @@ while True:
                 try:
                     if Speech.find(".wav") != -1:
                         print("wav file")
+                        Speech = Speech.strip(' \n\t')
                         r2d2(Speech)
                     else:
                         print("speech")
