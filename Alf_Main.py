@@ -185,7 +185,15 @@ try:
                 pixysig = pixy.get(1)
                 print("\n{0}".format(pixysig))        
                 #alf.hunt(1)
+
+                set_emotion("AKMU_003_1.gif") #gerade
+
+                if pixysig[1] < 105: #rechts
+                    set_emotion("AKRU_003_1.gif")
                 
+                elif pixysig[1] > 210: #links
+                    set_emotion("AKLU_003_1.gif"")
+
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
             
@@ -267,8 +275,8 @@ try:
             set_emotion(AKZMM_004_1.gif)
             logging.info("----> Wall detected!")
         
-        logging.info("\n{0}".format(pixysig))
-        print("\n{0}".format(pixysig))
+        #logging.info("\n{0}".format(pixysig))
+        #print("\n{0}".format(pixysig))
         #if pixysig ==
             #set_emotion(r.gif)
 
