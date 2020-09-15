@@ -70,7 +70,6 @@ while True:
     time.sleep(0.2)
 
     Speech = speech()
-    print(Speech)
 
     if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
                 try:
