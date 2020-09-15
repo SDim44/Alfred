@@ -30,7 +30,7 @@ logfile = 'logs/Alf_Main.log'
 global prev_mode
 prev_mode = "0"
 
-ACTIONTIME = 60
+ACTIONTIME = 45
 BLINK = ACTIONTIME - 2
 
 #--------------------------------------------------------------------------------
