@@ -192,7 +192,7 @@ try:
                     set_emotion("AKRU_003_1.gif")
                 
                 elif pixysig[1] > 210: #links
-                    set_emotion("AKLU_003_1.gif"")
+                    set_emotion("AKLU_003_1.gif")
 
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
