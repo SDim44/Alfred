@@ -73,11 +73,11 @@ while True:
 
     if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
                 try:
-                    if name.find(".wav") != -1:
-                        print(Speech)
+                    if Speech.find(".wav"):
+                        print("wav file")
                         r2d2(Speech)
                     else:
-                        print(Speech)
+                        print("speech")
                         say(Speech)
 
                 except:
