@@ -145,7 +145,7 @@ def systemcheck():
 #Main
 #--------------------------------------------------------------------------------
 
-i = 0
+timer = 0
 try:
 
 #--------------------------------------------------------------------------------
@@ -229,7 +229,7 @@ try:
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
 
-            if i>=25 or i<=30:
+            if timer>=25 and timer<=30:
                 set_emotion("AKZMM_005_1.gif")
             else:
                 set_emotion("AKMU_009_2.gif")
@@ -280,11 +280,11 @@ try:
             set_emotion(AKZMM_004_1.gif)
             logging.info("----> Wall detected!")
         
-        if i == 30:
-            i = 0
+        if timer == 30:
+            timer = 0
 
 
-        i+=1
+        timer+=1
 
 #--------------------------------------------------------------------------------
 # Exceptions
