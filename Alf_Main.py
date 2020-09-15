@@ -182,9 +182,10 @@ try:
             logging.info("Mode 1 - Objekt 1")
             
             try:
-                pixysig = pixy.get(1)          
+                pixysig = pixy.get(1)
+                print("\n{0}".format(pixysig))        
                 alf.hunt(1)
-                print("\n{0}".format(pixysig))
+                
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
             
