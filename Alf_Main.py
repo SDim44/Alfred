@@ -190,19 +190,19 @@ try:
                 #alf.hunt(1)
 
                 if timer>=BLINK and timer<=ACTIONTIME:
-                    set_emotion("AKZMM_004_1.gif")
+                    set_emotion("AKZMM_004_2.gif")
                 else:
                     set_emotion("AKMU_003_1.gif") #gerade
 
                 if pixysig[1] < 105: #rechts
                     if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZMR_003.gif")
+                        set_emotion("AKZMR_004.gif")
                     else:
                         set_emotion("AKRU_003_1.gif")
                 
                 elif pixysig[1] > 210: #links
                     if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZML_003.gif")
+                        set_emotion("AKZML_004.gif")
                     else:
                         set_emotion("AKLU_003_1.gif")
 
