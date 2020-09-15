@@ -162,7 +162,7 @@ try:
     while True: 
         
         time.sleep(0.2) #Verhindert Laufzeitfehler
-        
+        print("laeuft bei mir")
         #Variablen setzten
         Mode = mode() #Mode auslesen
         wall = distance.wall() # Ultraschallsensoren auslesen
