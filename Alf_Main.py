@@ -132,9 +132,12 @@ def systemcheck():
     time.sleep(1)
     set_speech("Hallo, mein name ist Alfred")
     time.sleep(1)
-    temperature,pressure,humidity = temperatur.readBME280All()
-    say("Die aktuelle Temperatur betregt ")
-    say(temperature)
+    try:
+        temperature,pressure,humidity = temperatur.readBME280All()
+        say("Die aktuelle Temperatur betregt ")
+        say(temperature)
+    except:
+        pass
     
 
 
