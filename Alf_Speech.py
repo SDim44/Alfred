@@ -54,7 +54,7 @@ def say(speech):
 
 def r2d2(file):
 
-    cmd = 'DATA/sounds/' + file
+    cmd = '/home/pi/Alfred/DATA/sounds/' + file
     print(cmd)
     call(["aplay",cmd])
     logging.info("Alfred: r2d2 - {0}".format(file))
