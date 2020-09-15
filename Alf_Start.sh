@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ladescreen setzten
-echo "99.gif" > emotion.conf
+echo "AGZMU_001.gif" > emotion.conf
 # Modus setzten
 echo "0" > mode.conf
 sleep 1
