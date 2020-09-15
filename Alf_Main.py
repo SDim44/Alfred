@@ -165,18 +165,12 @@ try:
     while True: 
         
         time.sleep(0.2) #Verhindert Laufzeitfehler
-        print("laeuft bei mir")
+        
+
         #Variablen setzten
         Mode = mode() #Mode auslesen
-        print(Mode)
-        #try:
-            #wall = distance.wall() # Ultraschallsensoren auslesen
-        #except:
-        #    logging.info("----Fehler ist aufgetreten! --> Ultraschall")
-        #    print("----Fehler ist aufgetreten! --> Ultraschall")
-        #    wall = False
-
-        wall = False
+        wall = distance.wall() # Ultraschallsensoren auslesen
+        #wall = False
         pixysig = "0"
  
 #--------------------------------------------------------------------------------
@@ -187,7 +181,7 @@ try:
             try:
                 pixysig = pixy.get(1)
                 print("\n{0}".format(pixysig))        
-                #alf.hunt(1)
+                alf.hunt(1)
 
                 #-----------------------------------------
                 #Emotions
@@ -234,7 +228,7 @@ try:
             try:
                 pixysig = pixy.get(2)
                 logging.info("\n{0}".format(pixysig))
-                #alf.hunt(2)
+                alf.hunt(2)
 
                 #-----------------------------------------
                 #Emotions
@@ -337,8 +331,7 @@ try:
         
         if timer == ACTIONTIME:
             timer = 0
-
-
+            
         timer+=1
 
 #--------------------------------------------------------------------------------
