@@ -62,28 +62,32 @@ def r2d2(file):
 #------------------------------------------------------------------------------------------------- 
 #Main
 
-print("------START------")
+print("------START AUDIO-INTERFACE------")
 
-while True:
-    
-    time.sleep(0.2)
+try:
 
-    Speech = speech()
+    while True:
+        
+        time.sleep(0.2)
 
-    if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
-                try:
-                    if Speech.find(".wav") != -1:
-                        print("wav file")
-                        Speech = Speech.strip(' \n\t')
-                        r2d2(Speech)
-                    else:
-                        print("speech")
-                        say(Speech)
+        Speech = speech()
 
-                except:
-                    logging.error("----Fehler ist aufgetreten! --> speech_changed")
-                    print("----Fehler ist aufgetreten! --> speech_changed")
+        if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
+                    try:
+                        if Speech.find(".wav") != -1:
+                            print("wav file")
+                            Speech = Speech.strip(' \n\t')
+                            r2d2(Speech)
+                        else:
+                            print("speech")
+                            say(Speech)
 
+                    except:
+                        logging.error("----Fehler ist aufgetreten! --> speech_changed")
+                        print("----Fehler ist aufgetreten! --> speech_changed")
+
+except KeyboardInterrupt:
+    print("------STOP AUDIO-INTERFACE------")
     
 
     
