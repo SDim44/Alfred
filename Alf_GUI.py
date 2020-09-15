@@ -47,6 +47,28 @@ logging.debug("----------- Starte Alfred Modul - GUI {0} ---------------".format
 
 #---------------------------------------------------------------------------------------
 #Funktionen
+
+#---------------------------------------------------------------------------------------
+#Config File lesen/aendern
+def read_emotionfile():
+    config = open("emotion.conf")
+    set = config.read()
+    config.close()
+    set = set.strip(' \n\t')
+    
+    path = "DATA/emotions/" + set
+    return path
+
+#--------------------------------------------------------------------------------
+#Sprachbefehle setzten
+def set_speech(text): 
+    wert = str(text)
+    config = open("speech.conf","w")
+    config.write(wert)
+    config.close
+    
+#---------------------------------------------------------------------------------------
+#Befehl an Arduino senden
 def setcmd():
     global scvalue1
     global scvalue2
@@ -97,6 +119,7 @@ def setmode(num):
 #---------------------------------------------------------------------------------------
 #exit function
 def restart():
+    set_speech("Oberfläche wird neu gestartet")
     root.destroy()
     emo.destroy()
     main()
@@ -106,6 +129,7 @@ def exit():
     emo.destroy()
 
 def alf_sht():
+    set_speech("Programm wird beendet")
     try:
         os.system("sudo /etc/init.d/Alfred stop")
     except:
@@ -115,6 +139,7 @@ def alf_sht():
         os.system("./Alf_Stop.sh")
         
 def alf_rst():    
+    set_speech("Ein reboot nie schaden tut")
     try:
         os.system("sudo /etc/init.d/Alfred restart")
     except:
@@ -133,18 +158,6 @@ def lift_emo():
 def lift_root():
     root.attributes("-fullscreen", True)
     emo.attributes("-fullscreen", False)
-
-#---------------------------------------------------------------------------------------
-#Config File lesen/aendern
-
-def read_emotionfile():
-    config = open("emotion.conf")
-    set = config.read()
-    config.close()
-    set = set.strip(' \n\t')
-    
-    path = "DATA/emotions/" + set
-    return path
 
 #---------------------------------------------------------------------------------------
 #Schleife um das Bild im Betrieb zu aendern 
