@@ -10,6 +10,7 @@
 import time
 import logging
 from subprocess import call
+import Alf_Temperatur as temperatur
 
 #------------------------------------------------------------------------------------------------- 
 #Variablen
@@ -62,6 +63,9 @@ def r2d2(file):
 
 try:
     print("------START------")
+
+    
+
     while True:
               
         Mode = mode()
@@ -82,6 +86,13 @@ try:
         elif Mode == "5": #Face detection + follow
             if mod_changed(Mode):
                 say("Trying to find Humans")
+
+        elif Mode == "0": #Startup
+            say("Hallo, ich bin Alfred")
+            time.sleep(1)
+            temperature,pressure,humidity = temperatur.readBME280All()
+            say("Die aktuelle Temperatur betregt ")
+            say(temperature)
 
 
 
