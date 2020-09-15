@@ -6,7 +6,7 @@
 #       Dieses Programm uebernimmt die Steuerung der Roboter-Platform.
 #
 #       V0.2 
-#       Laufzeitfehler behoben und logging erweitert
+#       Laufzeitfehler behoben und logging erweitert.
 #
 
 
@@ -95,7 +95,7 @@ def systemcheck():
     #Tool ueberpruefen
 
     logging.info("----> Ladescreen erzeugen")
-    set_emotion("99.gif")
+    set_emotion("AGZMM_001.gif")
     time.sleep(1)
     
     #------------
@@ -115,12 +115,16 @@ def systemcheck():
     #Systemcheck beenden (Zwinkern)
 
     time.sleep(1.5)
-    set_emotion("AKMU_009_3.gif")
+    set_emotion("AKZMM_004_1.gif")
     time.sleep(1)
-    set_emotion("AKZMM_005_2.gif")
+    set_emotion("AKMU_002_1.gif")
     setmode(3)
     time.sleep(1)
-    set_emotion("AKMU_009_3.gif")
+    set_emotion("AKZMM_004_1.gif")
+    time.sleep(1)
+    set_emotion("AKMU_009_2.gif")
+
+    
 
 
 #--------------------------------------------------------------------------------
@@ -148,7 +152,7 @@ try:
         #Variablen setzten
         Mode = mode() #Mode auslesen
         wall = distance.wall() # Ultraschallsensoren auslesen
-        pixysig = "0"  
+        pixysig = "0"
  
 #--------------------------------------------------------------------------------
 # Mode 1  
