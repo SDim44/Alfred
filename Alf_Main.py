@@ -192,7 +192,7 @@ try:
                 #-----------------------------------------
                 #Emotions
                 
-                if pixysig[1] == 0
+                if pixysig[1] == 0:
                     if timer>=BLINK and timer<=ACTIONTIME:
                        set_emotion("AKZMM_004_1.gif")
                     else:
