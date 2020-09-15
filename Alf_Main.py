@@ -184,7 +184,7 @@ try:
             try:
                 pixysig = pixy.get(1)
                 print("\n{0}".format(pixysig))        
-                alf.hunt(1)
+                #alf.hunt(1)
                 
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
