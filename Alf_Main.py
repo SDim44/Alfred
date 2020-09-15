@@ -222,6 +222,7 @@ try:
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt
                 try:
                     led.on(1,0,100,0)
+                    set_speech("Ich folge ihnen Master")
 
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
@@ -268,6 +269,7 @@ try:
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt
                 try:
                     led.on(1,100,0,0)
+                    set_speech("ich verlasse sie nun, master")
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
                     
@@ -288,6 +290,7 @@ try:
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt   
                 try:
                     led.on(1,0,0,100)
+                    set_speech("die manuelle steuerung wurde ausgewählt, was nun, master")
                     
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
@@ -329,6 +332,7 @@ try:
 
         if wall == True:
             set_emotion(AKZMM_004_1.gif)
+            set_speech("oh, eine wand")
             logging.info("----> Wall detected!")
         
         if timer == ACTIONTIME:
