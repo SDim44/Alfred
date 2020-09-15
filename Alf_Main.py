@@ -21,6 +21,7 @@ import Alf_Ultraschall as distance
 import Alf_Pixy2 as pixy
 import Alf_ToolConnect as tool
 import Alf_LED as led
+import Alf_Temperatur as temperatur
 
 #--------------------------------------------------------------------------------
 #Variablen
@@ -62,6 +63,14 @@ def mode():
 def setmode(num): 
     wert = str(num)
     config = open("mode.conf","w")
+    config.write(wert)
+    config.close
+
+#--------------------------------------------------------------------------------
+#Modus in Main aendern
+def set_speech(text): 
+    wert = str(text)
+    config = open("speech.conf","w")
     config.write(wert)
     config.close
 
@@ -118,12 +127,14 @@ def systemcheck():
     set_emotion("AKZMM_004_1.gif")
     time.sleep(1)
     set_emotion("AKMU_002_1.gif")
-    setmode(3)
     time.sleep(1)
     set_emotion("AKZMM_004_1.gif")
     time.sleep(1)
-    set_emotion("AKMU_009_2.gif")
-
+    set_speech("Hallo, mein name ist Alfred")
+    time.sleep(1)
+    temperature,pressure,humidity = temperatur.readBME280All()
+    say("Die aktuelle Temperatur betregt ")
+    say(temperature)
     
 
 
@@ -199,6 +210,7 @@ try:
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt   
                 try:
                     led.on(1,0,0,100)
+                    set_emotion("AKMU_009_2.gif")
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
 
@@ -242,6 +254,7 @@ try:
             logging.info("----> Wall detected!")
         
         logging.info("\n{0}".format(pixysig))
+        print(pixysig)
         #if pixysig ==
             #set_emotion(r.gif)
 
