@@ -165,8 +165,11 @@ try:
         print("laeuft bei mir")
         #Variablen setzten
         Mode = mode() #Mode auslesen
-        #wall = distance.wall() # Ultraschallsensoren auslesen
-        wall = False
+        try:
+            wall = distance.wall() # Ultraschallsensoren auslesen
+        except:
+            logging.info("----Fehler ist aufgetreten! --> Ultraschall")
+            wall = False
         pixysig = "0"
  
 #--------------------------------------------------------------------------------
