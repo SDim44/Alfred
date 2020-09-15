@@ -228,11 +228,16 @@ try:
                 engin.move(0,0,0,0)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
+
+            if i<=25 or <=30:
+                set_emotion("AKZMM_005_1.gif")
+            else:
+                set_emotion("AKMU_009_2.gif")
             
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt   
                 try:
                     led.on(1,0,0,100)
-                    set_emotion("AKMU_009_2.gif")
+                    
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
 
@@ -275,11 +280,11 @@ try:
             set_emotion(AKZMM_004_1.gif)
             logging.info("----> Wall detected!")
         
-        #logging.info("\n{0}".format(pixysig))
-        #print("\n{0}".format(pixysig))
-        #if pixysig ==
-            #set_emotion(r.gif)
+        if i == 30:
+            i = 0
 
+
+        i+=1
 
 #--------------------------------------------------------------------------------
 # Exceptions
