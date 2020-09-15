@@ -189,22 +189,25 @@ try:
                 print("\n{0}".format(pixysig))        
                 #alf.hunt(1)
 
+                #-----------------------------------------
+                #Emotions
                 if timer>=BLINK and timer<=ACTIONTIME:
                     set_emotion("AKZMM_004_2.gif")
                 else:
                     set_emotion("AKMU_003_1.gif") #gerade
 
-                if pixysig[1] < 105: #rechts
+                if pixysig[1] < 105 and pixysig[1] > 0: #rechts
                     if timer>=BLINK and timer<=ACTIONTIME:
                         set_emotion("AKZMR_004.gif")
                     else:
                         set_emotion("AKRU_003_1.gif")
                 
-                elif pixysig[1] > 210: #links
+                elif pixysig[1] > 210 and pixysig[1] < 315: #rechts: #links
                     if timer>=BLINK and timer<=ACTIONTIME:
                         set_emotion("AKZML_004.gif")
                     else:
                         set_emotion("AKLU_003_1.gif")
+                #-----------------------------------------
 
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
@@ -224,6 +227,27 @@ try:
                 pixysig = pixy.get(2)
                 logging.info("\n{0}".format(pixysig))
                 alf.hunt(2)
+
+                #-----------------------------------------
+                #Emotions
+                if timer>=BLINK and timer<=ACTIONTIME:
+                    set_emotion("AKZMM_004_2.gif")
+                else:
+                    set_emotion("AKMU_003_1.gif") #gerade
+
+                if pixysig[1] < 105 and pixysig[1] > 0: #rechts
+                    if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZMR_004.gif")
+                    else:
+                        set_emotion("AKRU_003_1.gif")
+                #-----------------------------------------
+
+                elif pixysig[1] > 210 and pixysig[1] < 315: #rechts: #links
+                    if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZML_004.gif")
+                    else:
+                        set_emotion("AKLU_003_1.gif")
+
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
             
@@ -232,6 +256,7 @@ try:
                     led.on(1,100,0,0)
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
+                    
 #--------------------------------------------------------------------------------
 # Mode 3             
         elif Mode == "3": #Tool Mode
