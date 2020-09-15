@@ -49,7 +49,6 @@ def speech_changed(m):
 #Text als Sprache ausgeben
 def say(speech):
   
-    print(speech)
     call(["espeak",speech])
     logging.info("Alfred: {0}".format(speech))
 
@@ -67,8 +66,9 @@ def r2d2(file):
 print("------START------")
 
 while True:
+    
     time.sleep(0.2)
-      
+
     Speech = speech()
     print(Speech)
 
@@ -83,6 +83,7 @@ while True:
 
                 except:
                     logging.error("----Fehler ist aufgetreten! --> speech_changed")
+                    print("----Fehler ist aufgetreten! --> speech_changed")
 
     
 
