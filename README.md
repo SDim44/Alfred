@@ -3,7 +3,7 @@ Raspberry houshold robot Prototype
 
 FH Wiener Neustadt
 
-# Dokumentation - Projekt Alfred
+# Dokumentation
 
 ## Alfred von Github herunterladen
 
