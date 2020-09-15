@@ -30,6 +30,9 @@ logfile = 'logs/Alf_Main.log'
 global prev_mode
 prev_mode = "0"
 
+ACTIONTIME = 60
+BLINK = ACTIONTIME - 2
+
 #--------------------------------------------------------------------------------
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
@@ -229,7 +232,7 @@ try:
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
 
-            if timer>=25 and timer<=28:
+            if timer>=BLINK and timer<=ACTIONTIME:
                 set_emotion("AKZMM_005_1.gif")
             else:
                 set_emotion("AKMU_009_2.gif")
@@ -280,7 +283,7 @@ try:
             set_emotion(AKZMM_004_1.gif)
             logging.info("----> Wall detected!")
         
-        if timer == 30:
+        if timer == ACTIONTIME:
             timer = 0
 
 
