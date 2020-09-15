@@ -104,7 +104,7 @@ def systemcheck():
     #Tool ueberpruefen
 
     logging.info("----> Ladescreen erzeugen")
-    set_emotion("AGZMM_001.gif")
+    set_emotion("AGZMU_001.gif")
     time.sleep(1)
     
     #------------
