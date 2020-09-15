@@ -6,4 +6,4 @@ sudo pkill -f Alf_Speech.py
 sudo pkill -f Alf_Main.py
 
 #Emotion/Bild setzten
-echo "0.gif" > emotion.conf
+echo "AGZMU_001.gif" > emotion.conf
