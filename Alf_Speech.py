@@ -14,7 +14,7 @@ import Alf_Temperatur as temperatur
 
 #------------------------------------------------------------------------------------------------- 
 #Variablen
-global prev_mode
+global prev_speech
 prev_mode = "0"
 
 #------------------------------------------------------------------------------------------------- 
@@ -37,13 +37,13 @@ def speech():
     logging.info("speech.conf wird ausgelesen: {0}".format(set))
 
 def speech_changed(m):
-    global prev_mode
+    global prev_speech
 
-    if prev_mode == m:
+    if prev_speech == m:
         return False
 
     else:
-        prev_mode = m
+        prev_speech = m
         return True
    
 #Text als Sprache ausgeben
@@ -68,8 +68,9 @@ print("------START------")
 
 while True:
     time.sleep(0.2)
-    print("Auslesen-------")  
+      
     Speech = speech()
+    print(Speech)
 
     if speech_changed(Speech): #wird nur beim ersten durchlauf ausgefuehrt
                 try:
