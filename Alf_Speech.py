@@ -88,29 +88,3 @@ try:
 
 except KeyboardInterrupt:
     print("------STOP AUDIO-INTERFACE------")
-    
-
-    
-#-------------------------------------------------------------------------------------------------- 
-    
-#    if Speech == "1":
-#        if mod_changed(Mode):
-#            r2d2("verfolgung.wav")
-
-        
-#    elif Mode == "2": 
-#        if mod_changed(Mode):
-#            r2d2("ladestation.wav")
-        
-#    elif Mode == "3": #Tool Mode
-#        if mod_changed(Mode):    
-#            r2d2("toolmode.wav")                      
-
-#    elif Mode == "5": #Face detection + follow
-#        if mod_changed(Mode):
-#            say("Trying to find Humans")
-
-#    elif Mode == "0": #Startup
-#        say("Hallo, ich bin Alfred")
-#        
-
