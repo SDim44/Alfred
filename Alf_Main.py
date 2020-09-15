@@ -191,7 +191,6 @@ try:
 
                 #-----------------------------------------
                 #Emotions
-                
                 if pixysig[1] == 0: # mitte
                     if timer>=BLINK and timer<=ACTIONTIME:
                        set_emotion("AKZMM_004_1.gif")
@@ -210,7 +209,7 @@ try:
                     else:
                         set_emotion("AKRU_003_1.gif")
                 
-                elif pixysig[1] > 210 and pixysig[1] <= 315: #rechts: #links
+                elif pixysig[1] > 210 and pixysig[1] <= 315: #links
                     if timer>=BLINK and timer<=ACTIONTIME:
                         set_emotion("AKZML_004.gif")
                     else:
@@ -234,27 +233,34 @@ try:
             try:
                 pixysig = pixy.get(2)
                 logging.info("\n{0}".format(pixysig))
-                alf.hunt(2)
+                #alf.hunt(2)
 
                 #-----------------------------------------
                 #Emotions
-                if timer>=BLINK and timer<=ACTIONTIME:
-                    set_emotion("AKZMM_004_2.gif")
-                else:
-                    set_emotion("AKMU_003_1.gif") #gerade
+                if pixysig[1] == 0: # mitte
+                    if timer>=BLINK and timer<=ACTIONTIME:
+                       set_emotion("AKZMM_004_1.gif")
+                    else:
+                       set_emotion("AKMU_002_1.gif")
+                
+                elif pixysig[1] >= 105 and pixysig[1] <= 210: # mitte
+                    if timer>=BLINK and timer<=ACTIONTIME:
+                       set_emotion("AKZMM_004_2.gif")
+                    else:
+                       set_emotion("AKMU_003_1.gif")
 
-                if pixysig[1] < 105 and pixysig[1] > 0: #rechts
+                elif pixysig[1] < 105 and pixysig[1] > 0: #rechts
                     if timer>=BLINK and timer<=ACTIONTIME:
                         set_emotion("AKZMR_004.gif")
                     else:
                         set_emotion("AKRU_003_1.gif")
-                #-----------------------------------------
-
-                elif pixysig[1] > 210 and pixysig[1] < 315: #rechts: #links
+                
+                elif pixysig[1] > 210 and pixysig[1] <= 315: #links
                     if timer>=BLINK and timer<=ACTIONTIME:
                         set_emotion("AKZML_004.gif")
                     else:
                         set_emotion("AKLU_003_1.gif")
+                #-----------------------------------------        
 
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
