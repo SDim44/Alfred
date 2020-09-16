@@ -135,10 +135,8 @@ def systemcheck():
     time.sleep(1)
     set_emotion("AKZMM_004_1.gif")
     time.sleep(1)
-    set_speech("Hallo, mein name ist Alfred")
-    time.sleep(1)
-    #tem = 25.2
-    
+    set_emotion("AKMU_002_1.gif")
+    set_speech("Hallo, mein name ist Alfred")   
     set_speech("Die aktuelle Temperatur betregt ")
     set_speech(tem)
     set_speech("Grad Celsius")
