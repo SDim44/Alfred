@@ -123,6 +123,8 @@ def systemcheck():
     except:
         logging.warning("!!! Tool check faild")
     
+     #------------
+    tem = temperatur.readtemp()
     #------------
     #Systemcheck beenden (Zwinkern)
 
@@ -136,11 +138,11 @@ def systemcheck():
     set_speech("Hallo, mein name ist Alfred")
     time.sleep(1)
     #tem = 25.2
-    tem = temperatur.readtemp()
+    
     set_speech("Die aktuelle Temperatur betregt ")
     set_speech(tem)
     set_speech("Grad Celsius")
-
+    time.sleep(2)
     setmode(3)
 
 
