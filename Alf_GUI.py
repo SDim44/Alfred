@@ -293,10 +293,10 @@ def main():
     Label (root, text="Motor", anchor="center", bg="white", fg="black", font="none 14 bold") .grid(row=9, column=1, padx=0, pady=20)
     Scale (root, from_=0, to=100, orient=HORIZONTAL, showvalue=1, command=motorspeed) .grid(row=10, column=3, padx=0, pady=0,rowspan=2)
     Button(root, text="STOP", width=10, height=1, command= lambda: engin.move(0,0,0,0)) .grid(row=10, column=1, padx=0, pady=0, rowspan=2)
-    Button(root, text="D", width=10, height=1, command= lambda: engin.move(1,1,mvalue,mvalue)) .grid(row=10, column=2, padx=0, pady=0, rowspan=2)
-    Button(root, text="<", width=10, height=1, command= lambda: engin.move(1,2,mvalue,mvalue)) .grid(row=12, column=1, padx=0, pady=0, rowspan=2)
-    Button(root, text=">", width=10, height=1, command= lambda: engin.move(2,1,mvalue,mvalue)) .grid(row=12, column=3, padx=0, pady=0, rowspan=2)
-    Button(root, text="R", width=10, height=1, command= lambda: engin.move(2,2,mvalue,mvalue)) .grid(row=12, column=2, padx=0, pady=0, rowspan=2)
+    Button(root, text="D", width=10, height=1, command= lambda: engin.move(1,1,100,100)) .grid(row=10, column=2, padx=0, pady=0, rowspan=2)
+    Button(root, text="<", width=10, height=1, command= lambda: engin.move(1,2,100,100)) .grid(row=12, column=1, padx=0, pady=0, rowspan=2)
+    Button(root, text=">", width=10, height=1, command= lambda: engin.move(2,1,100,100)) .grid(row=12, column=3, padx=0, pady=0, rowspan=2)
+    Button(root, text="R", width=10, height=1, command= lambda: engin.move(2,2,100,100)) .grid(row=12, column=2, padx=0, pady=0, rowspan=2)
     
     #2.Spalte - Tool Menue
     build()
