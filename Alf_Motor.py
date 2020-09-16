@@ -62,10 +62,10 @@ def move(L=0,R=0,SpeedL=50,SpeedR=50):
     #SpeedL = float(SpeedL)
     #SpeedR = float(SpeedR)
     
-    if SpeedL >= 50:
-        SpeedL-=20
-    if SpeedR >= 50:
-        SpeedR-=20
+    #if SpeedL >= 50:
+    #    SpeedL-=20
+    #if SpeedR >= 50:
+    #    SpeedR-=20
     PWML.ChangeDutyCycle(SpeedL)
     PWMR.ChangeDutyCycle(SpeedR)
     
