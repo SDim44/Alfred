@@ -9,7 +9,7 @@
 #Libarys
 import time
 import logging
-from subprocess import call
+import os
 import Alf_Temperatur as temperatur
 
 #------------------------------------------------------------------------------------------------- 
@@ -48,8 +48,8 @@ def speech_changed(m):
    
 #Text als Sprache ausgeben
 def say(speech):
-  
-    call(["espeak",speech])
+    cmd = "espeak -vde -s100" + ' "' + speech + '"'
+    os.system(cmd)
     logging.info("Alfred: {0}".format(speech))
 
 def r2d2(file):
