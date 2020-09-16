@@ -284,7 +284,7 @@ try:
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt   
                 try:
                     led.on(1,0,0,100)
-                    set_speech("die manuelle steuerung wurde ausgewählt, was nun, master")
+                    set_speech("die manuelle steuerung wurde ausgewaehlt, was nun, master")
                     
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
