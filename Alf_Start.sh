@@ -4,6 +4,7 @@
 echo "AGZMU_001.gif" > emotion.conf
 # Modus setzten
 echo "0" > mode.conf
+echo "" > speech.conf
 sleep 1
 
 #Programme starten
