@@ -142,10 +142,10 @@ def systemcheck():
     time.sleep(1)
     set_emotion("AKMU_002_1.gif")
     say("Hallo, mein name ist Alfred") 
-    time.sleep(4)
+    #time.sleep(4)
     temperat= "Die aktuelle Temperatur betregt " + str(tem) + " Grad Celsius"
     say(temperat)
-    time.sleep(5)
+    #time.sleep(5)
     setmode(3)
 
 
