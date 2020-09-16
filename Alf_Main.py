@@ -122,7 +122,7 @@ def systemcheck():
         logging.info("----> Tool OK: {0}".format(toolcheck))    
     except:
         logging.warning("!!! Tool check faild")
-    #---
+    
     #------------
     #Systemcheck beenden (Zwinkern)
 
@@ -135,12 +135,12 @@ def systemcheck():
     time.sleep(1)
     set_speech("Hallo, mein name ist Alfred")
     time.sleep(1)
-    try:
-        temperature,pressure,humidity = temperatur.readBME280All()
-        say("Die aktuelle Temperatur betregt ")
-        say(temperature)
-    except:
-        pass
+
+    tem,pre,hum = temperatur.readBME280All()
+    say("Die aktuelle Temperatur betregt ")
+    say(tem)
+    say(Grad Celsius)
+
     setmode(3)
 
 
