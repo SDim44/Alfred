@@ -135,11 +135,11 @@ def systemcheck():
     time.sleep(1)
     set_speech("Hallo, mein name ist Alfred")
     time.sleep(1)
-    tem = 25.2
+    #tem = 25.2
     tem = temperatur.readtemp()
-    say("Die aktuelle Temperatur betregt ")
-    say(tem)
-    say("Grad Celsius")
+    set_speech("Die aktuelle Temperatur betregt ")
+    set_speech(tem)
+    set_speech("Grad Celsius")
 
     setmode(3)
 
