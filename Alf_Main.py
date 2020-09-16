@@ -135,8 +135,8 @@ def systemcheck():
     time.sleep(1)
     set_speech("Hallo, mein name ist Alfred")
     time.sleep(1)
-
-    tem,pre,hum = temperatur.readBME280All()
+    tem = 25.2
+    tem = temperatur.readtemp()
     say("Die aktuelle Temperatur betregt ")
     say(tem)
     say("Grad Celsius")
