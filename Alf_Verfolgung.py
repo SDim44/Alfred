@@ -70,23 +70,23 @@ def driving(sig):
                 engin.move(1,1,100,100)
         
         elif area > MAXAREA:  # Rueckwaerts fahren wenn das Objekt zu gross ist.
-            engin.move(2,2,50,50)
-            time.sleep(0.2)
+            #0engin.move(2,2,50,50)
+            #time.sleep(0.2)
             engin.move(0,0,0,0)
             logging.debug("STOP\n")
     
         
         else: # Stoppen, wenn sich das Objekt im Bereich "area" befindet.
             
-            engin.move(2,2,50,50)
-            time.sleep(0.2)
+            #engin.move(2,2,50,50)
+            #time.sleep(0.2)
             engin.move(0,0,0,0)
             logging.debug("STOP\n")
         
     
     else:  # Stoppen, wenn keine Signatur oder ein Hindernis erkannt wird.
-        engin.move(2,2,50,50)
-        time.sleep(0.2)
+        #engin.move(2,2,50,50)
+        #time.sleep(0.2)
         engin.move(0,0,0,0)
         logging.debug("Stop --> Nach Signal suchen\n")
 
