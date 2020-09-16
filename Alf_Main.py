@@ -97,6 +97,11 @@ def set_emotion(file):
     config.write(wert)
     config.close
 
+def say(speech):
+    cmd = "espeak -vde -s100" + ' "' + speech + '"'
+    os.system(cmd)
+    logging.info("Alfred: {0}".format(speech))
+
 #--------------------------------------------------------------------------------   
 def systemcheck():
 
@@ -136,11 +141,11 @@ def systemcheck():
     set_emotion("AKZMM_004_1.gif")
     time.sleep(1)
     set_emotion("AKMU_002_1.gif")
-    set_speech("Hallo, mein name ist Alfred")   
-    set_speech("Die aktuelle Temperatur betregt ")
-    set_speech(tem)
-    set_speech("Grad Celsius")
-    time.sleep(2)
+    say("Hallo, mein name ist Alfred") 
+    time.sleep(4)
+    temperat= "Die aktuelle Temperatur betregt" + tem + "Grad Celsius"
+    say(temperat)
+    time.sleep(5)
     setmode(3)
 
 
