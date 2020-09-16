@@ -119,7 +119,7 @@ def setmode(num):
 #---------------------------------------------------------------------------------------
 #exit function
 def restart():
-    set_speech("Oberfläche wird neu gestartet")
+    set_speech("Oberflaeche wird neu gestartet")
     root.destroy()
     emo.destroy()
     main()
