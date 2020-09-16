@@ -139,7 +139,7 @@ def systemcheck():
     tem,pre,hum = temperatur.readBME280All()
     say("Die aktuelle Temperatur betregt ")
     say(tem)
-    say(Grad Celsius)
+    say("Grad Celsius")
 
     setmode(3)
 
