@@ -325,7 +325,7 @@ try:
         
 
         if wall == True:
-            set_emotion(AKZMM_004_1.gif)
+            set_emotion("AKZMM_004_1.gif")
             set_speech("oh, eine wand")
             logging.info("----> Wall detected!")
         
