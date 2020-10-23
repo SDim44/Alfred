@@ -15,10 +15,10 @@ try:
     import time
     import logging
     import os
+    import RPi.GPIO as GPIO
     import Alf_WebGUI as wg
 
     if _wired:
-        import RPi.GPIO as GPIO
         import Alf_Verfolgung as alf
         import Alf_Motor as engin
         import Alf_Ultraschall as distance
