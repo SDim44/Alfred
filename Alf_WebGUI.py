@@ -79,11 +79,12 @@ def run(arg=1):
 
         if arg == 0:
             socketio.switch = False
-    
-    except:
-        _ret = 'Error'
-        return _ret
+
 
     except KeyboardInterrupt:
         _ret = 'Stoped'
         socketio.stop(app)
+
+    except:
+        _ret = 'Error'
+        return _ret
