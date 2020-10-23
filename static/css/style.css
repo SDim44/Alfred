@@ -79,6 +79,15 @@ body{
     font-size:10pt;
 }
 
+.led-green {
+    float:left;
+    width: 14px;
+    height: 14px;
+    background-color: #7fff24;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset rgb(5, 102, 0) 0 -1px 9px, #1cd60b 0 2px 14px;
+  }
+
 .led-blue {
   float:left;
   width: 14px;
