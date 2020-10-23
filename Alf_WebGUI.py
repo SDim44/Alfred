@@ -16,7 +16,7 @@ from flask_cors import CORS
 import math
 from multiprocessing import Process, Queue
 
-_debug = False
+_debug = True
    
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
