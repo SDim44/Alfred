@@ -9,20 +9,31 @@
 #       Laufzeitfehler behoben und logging erweitert.
 #
 
+_wired = False
 
 #Libarys
-import time
-import logging
-import os
-import RPi.GPIO as GPIO
-import Alf_Motor as engin
-import Alf_Verfolgung as alf
-import Alf_Ultraschall as distance
-import Alf_Pixy2 as pixy
-import Alf_ToolConnect as tool
-import Alf_LED as led
-import Alf_Temperatur as temperatur
-import Alf_WebGUI as wg
+try: 
+    import time
+    import logging
+    import os
+    import Alf_WebGUI as wg
+
+    if _wired:
+        import RPi.GPIO as GPIO
+        import Alf_Verfolgung as alf
+        import Alf_Motor as engin
+        import Alf_Ultraschall as distance
+        import Alf_Pixy2 as pixy
+        import Alf_ToolConnect as tool
+        import Alf_LED as led
+        import Alf_Temperatur as temperatur
+    
+
+except:
+    print("!!! Library Failed")
+
+
+
 
 #--------------------------------------------------------------------------------
 #Variablen
@@ -130,7 +141,8 @@ def systemcheck():
         logging.warning("!!! Tool check faild")
     
      #------------
-    tem = temperatur.readtemp()
+    if _wired:
+        tem = temperatur.readtemp()
     #------------
     #Systemcheck beenden (Zwinkern)
 
@@ -144,8 +156,9 @@ def systemcheck():
     set_emotion("AKMU_002_1.gif")
     say("Hallo, mein name ist Alfred") 
     #time.sleep(4)
-    temperat= "Die aktuelle Temperatur betregt " + str(tem) + " Grad Celsius"
-    say(temperat)
+    if _wired:
+        temperat= "Die aktuelle Temperatur betregt " + str(tem) + " Grad Celsius"
+        say(temperat)
     #time.sleep(5)
     setmode(3)
 
@@ -175,7 +188,8 @@ try:
 
         #Variablen setzten
         Mode = mode() #Mode auslesen
-        wall = distance.wall() # Ultraschallsensoren auslesen
+        if _wired:
+            wall = distance.wall() # Ultraschallsensoren auslesen
         #wall = False
         pixysig = "0"
  
@@ -184,94 +198,96 @@ try:
         if Mode == "1":
             logging.info("Mode 1 - Objekt 1")
             
-            try:
-                pixysig = pixy.get(1)
-                print("\n{0}".format(pixysig))        
-                alf.hunt(1)
-
-                #-----------------------------------------
-                #Emotions
-                if pixysig[1] == 0: # mitte
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                       set_emotion("AKZMM_004_1.gif")
-                    else:
-                       set_emotion("AKMU_002_1.gif")
-                
-                elif pixysig[1] >= 105 and pixysig[1] <= 210: # mitte
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                       set_emotion("AKZMM_004_2.gif")
-                    else:
-                       set_emotion("AKMU_003_1.gif")
-
-                elif pixysig[1] < 105 and pixysig[1] > 0: #rechts
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZMR_004.gif")
-                    else:
-                        set_emotion("AKRU_003_1.gif")
-                
-                elif pixysig[1] > 210 and pixysig[1] <= 315: #links
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZML_004.gif")
-                    else:
-                        set_emotion("AKLU_003_1.gif")
-                #-----------------------------------------
-
-            except:
-                logging.error("----Fehler ist aufgetreten! --> loop")
-            
-            if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt
+            if _wired:
                 try:
-                    led.on(1,0,100,0)
-                    set_speech("Ich folge ihnen Master")
+                    pixysig = pixy.get(1)
+                    print("\n{0}".format(pixysig))        
+                    alf.hunt(1)
+
+                    #-----------------------------------------
+                    #Emotions
+                    if pixysig[1] == 0: # mitte
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZMM_004_1.gif")
+                        else:
+                        set_emotion("AKMU_002_1.gif")
+                    
+                    elif pixysig[1] >= 105 and pixysig[1] <= 210: # mitte
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZMM_004_2.gif")
+                        else:
+                        set_emotion("AKMU_003_1.gif")
+
+                    elif pixysig[1] < 105 and pixysig[1] > 0: #rechts
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                            set_emotion("AKZMR_004.gif")
+                        else:
+                            set_emotion("AKRU_003_1.gif")
+                    
+                    elif pixysig[1] > 210 and pixysig[1] <= 315: #links
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                            set_emotion("AKZML_004.gif")
+                        else:
+                            set_emotion("AKLU_003_1.gif")
+                    #-----------------------------------------
 
                 except:
-                    logging.error("----Fehler ist aufgetreten! --> mod_changed")
+                    logging.error("----Fehler ist aufgetreten! --> loop")
+                
+                if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt
+                    try:
+                        led.on(1,0,100,0)
+                        set_speech("Ich folge ihnen Master")
+
+                    except:
+                        logging.error("----Fehler ist aufgetreten! --> mod_changed")
 
 #--------------------------------------------------------------------------------
 # Mode 2              
         elif Mode == "2":
             logging.info("Mode 2 - Objekt 2")
-            try:
-                pixysig = pixy.get(2)
-                logging.info("\n{0}".format(pixysig))
-                alf.hunt(2)
-
-                #-----------------------------------------
-                #Emotions
-                if pixysig[1] == 0: # mitte
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                       set_emotion("AKZMM_004_1.gif")
-                    else:
-                       set_emotion("AKMU_002_1.gif")
-                
-                elif pixysig[1] >= 105 and pixysig[1] <= 210: # mitte
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                       set_emotion("AKZMM_004_2.gif")
-                    else:
-                       set_emotion("AKMU_003_1.gif")
-
-                elif pixysig[1] < 105 and pixysig[1] > 0: #rechts
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZMR_004.gif")
-                    else:
-                        set_emotion("AKRU_003_1.gif")
-                
-                elif pixysig[1] > 210 and pixysig[1] <= 315: #links
-                    if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZML_004.gif")
-                    else:
-                        set_emotion("AKLU_003_1.gif")
-                #-----------------------------------------        
-
-            except:
-                logging.error("----Fehler ist aufgetreten! --> loop")
-            
-            if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt
+            if _wired:
                 try:
-                    led.on(1,100,0,0)
-                    set_speech("ich verlasse sie nun, master")
+                    pixysig = pixy.get(2)
+                    logging.info("\n{0}".format(pixysig))
+                    alf.hunt(2)
+
+                    #-----------------------------------------
+                    #Emotions
+                    if pixysig[1] == 0: # mitte
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZMM_004_1.gif")
+                        else:
+                        set_emotion("AKMU_002_1.gif")
+                    
+                    elif pixysig[1] >= 105 and pixysig[1] <= 210: # mitte
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                        set_emotion("AKZMM_004_2.gif")
+                        else:
+                        set_emotion("AKMU_003_1.gif")
+
+                    elif pixysig[1] < 105 and pixysig[1] > 0: #rechts
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                            set_emotion("AKZMR_004.gif")
+                        else:
+                            set_emotion("AKRU_003_1.gif")
+                    
+                    elif pixysig[1] > 210 and pixysig[1] <= 315: #links
+                        if timer>=BLINK and timer<=ACTIONTIME:
+                            set_emotion("AKZML_004.gif")
+                        else:
+                            set_emotion("AKLU_003_1.gif")
+                    #-----------------------------------------        
+
                 except:
-                    logging.error("----Fehler ist aufgetreten! --> mod_changed")
+                    logging.error("----Fehler ist aufgetreten! --> loop")
+                
+                if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt
+                    try:
+                        led.on(1,100,0,0)
+                        set_speech("ich verlasse sie nun, master")
+                    except:
+                        logging.error("----Fehler ist aufgetreten! --> mod_changed")
                     
 #--------------------------------------------------------------------------------
 # Mode 3             
@@ -289,7 +305,8 @@ try:
             
             if mod_changed(Mode): #wird nur beim ersten durchlauf ausgefuehrt   
                 try:
-                    led.on(1,0,0,100)
+                    if _wired:
+                        led.on(1,0,0,100)
                     set_speech("die manuelle steuerung wurde ausgewaehlt, was nun, master")
                     wg.run()
                     
