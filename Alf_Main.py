@@ -294,7 +294,8 @@ try:
         elif Mode == "3": #Tool Mode
             logging.info("Mode 3 - Toolmodus")
             try:
-                engin.move(0,0,0,0)
+                if _wired:
+                    engin.move(0,0,0,0)
             except:
                 logging.error("----Fehler ist aufgetreten! --> loop")
 
