@@ -9,7 +9,6 @@
 #       Laufzeitfehler behoben und logging erweitert.
 #
 
-_wired = False
 
 #Libarys
 try: 
@@ -33,8 +32,6 @@ except:
     print("!!! Library Failed")
 
 
-
-
 #--------------------------------------------------------------------------------
 #Variablen
 global logfile
@@ -44,6 +41,8 @@ prev_mode = "0"
 
 ACTIONTIME = 45
 BLINK = ACTIONTIME - 2
+
+_wired = False
 
 #--------------------------------------------------------------------------------
 #GPIO Warnungen deaktivieren
