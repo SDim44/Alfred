@@ -9,7 +9,7 @@
 #       V0.1
 #       Flask Web Server
 
-def run()
+
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
 from flask_cors import CORS
