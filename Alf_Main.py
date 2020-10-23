@@ -207,15 +207,15 @@ try:
                     #Emotions
                     if pixysig[1] == 0: # mitte
                         if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZMM_004_1.gif")
+                            set_emotion("AKZMM_004_1.gif")
                         else:
-                        set_emotion("AKMU_002_1.gif")
+                            set_emotion("AKMU_002_1.gif")
                     
                     elif pixysig[1] >= 105 and pixysig[1] <= 210: # mitte
                         if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZMM_004_2.gif")
+                            set_emotion("AKZMM_004_2.gif")
                         else:
-                        set_emotion("AKMU_003_1.gif")
+                            set_emotion("AKMU_003_1.gif")
 
                     elif pixysig[1] < 105 and pixysig[1] > 0: #rechts
                         if timer>=BLINK and timer<=ACTIONTIME:
@@ -255,15 +255,15 @@ try:
                     #Emotions
                     if pixysig[1] == 0: # mitte
                         if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZMM_004_1.gif")
+                            set_emotion("AKZMM_004_1.gif")
                         else:
-                        set_emotion("AKMU_002_1.gif")
+                            set_emotion("AKMU_002_1.gif")
                     
                     elif pixysig[1] >= 105 and pixysig[1] <= 210: # mitte
                         if timer>=BLINK and timer<=ACTIONTIME:
-                        set_emotion("AKZMM_004_2.gif")
+                            set_emotion("AKZMM_004_2.gif")
                         else:
-                        set_emotion("AKMU_003_1.gif")
+                            set_emotion("AKMU_003_1.gif")
 
                     elif pixysig[1] < 105 and pixysig[1] > 0: #rechts
                         if timer>=BLINK and timer<=ACTIONTIME:
