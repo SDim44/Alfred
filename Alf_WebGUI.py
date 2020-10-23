@@ -77,7 +77,7 @@ def run(arg=1):
 
         socketio.run(app, host="0.0.0.0", debug=True, use_reloader=False)
 
-        if arg = 0:
+        if arg == 0:
             socketio.switch = False
     
     except:
