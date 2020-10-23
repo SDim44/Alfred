@@ -22,6 +22,7 @@ import Alf_Pixy2 as pixy
 import Alf_ToolConnect as tool
 import Alf_LED as led
 import Alf_Temperatur as temperatur
+import Alf_WebGUI as wg
 
 #--------------------------------------------------------------------------------
 #Variablen
@@ -290,6 +291,7 @@ try:
                 try:
                     led.on(1,0,0,100)
                     set_speech("die manuelle steuerung wurde ausgewaehlt, was nun, master")
+                    wg.run()
                     
                 except:
                     logging.error("----Fehler ist aufgetreten! --> mod_changed")
