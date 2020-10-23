@@ -40,9 +40,9 @@ sudo apt-get -y install matchbox-keyboard
 
 echo ----------------------------------------------
 echo -> install Flask 
-pip install gevent-websocket
-pip install Flask-Cors
-pip install flask-socketio
+pip3 install gevent-websocket
+pip3 install Flask-Cors
+pip3 install flask-socketio
 
 
 echo ----------------------------------------------
