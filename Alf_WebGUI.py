@@ -16,7 +16,8 @@ from flask_cors import CORS
 import math
 from multiprocessing import Process, Queue
 
-_debug = True
+_debug = False
+_fulldebug = True
    
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'secret'
@@ -39,6 +40,8 @@ def default_error_handler(e):
 @socketio.on('control', namespace='/control')
 def control(message):
     data = message["data"]
+    if _fulldebug:
+        print(data)
 
     if "left" in data.keys():
         x = data["left"][0]
