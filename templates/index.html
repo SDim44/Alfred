@@ -75,6 +75,11 @@
                     $('#output2').html("Button2");
                     evt.preventDefault();
                 });
+                $(document).on('touchstart touchmove', '#button3', function(evt){
+                    socket_control.emit('control', {data:{"C":1}});
+                    $('#output2').html("Button3");
+                    evt.preventDefault();
+                });
 
                 /******************************************
                   JOYSTICKS
