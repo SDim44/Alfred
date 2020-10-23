@@ -38,6 +38,12 @@ echo ----------------------------------------------
 echo -> install Matchbox Keyboard
 sudo apt-get -y install matchbox-keyboard
 
+echo ----------------------------------------------
+echo -> install Flask 
+pip install gevent-websocket
+pip install Flask-Cors
+pip install flask-socketio
+
 
 echo ----------------------------------------------
 echo -> Change Bootscreen
