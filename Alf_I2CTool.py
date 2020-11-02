@@ -22,11 +22,8 @@ def send(add,cmd):
     bus = SMBus(1)
     print(add)
     print(cmd)
-    try:
-        bus.write_byte(add, cmd)
-        feedback = True
-    except:
-        feedback = False
-        print("Failed to send i2c Data")
+    bus.write_byte(add, cmd)
+    
+    feedback = True
     
     return feedback
