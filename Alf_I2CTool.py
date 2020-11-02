@@ -20,6 +20,12 @@ def send(add,cmd):
 
     from smbus import SMBus
     bus = SMBus(1)
+    int(add) = add
+    int(cmd) = cmd
+    print(add)
+    print(cmd)
+    add = hex(add)
+    cmd = hex(cmd)
     print(add)
     print(cmd)
     bus.write_byte(add, cmd)
