@@ -12,7 +12,7 @@
 
 
 #Import Libraries
-fromo smbus import SMBus
+from smbus import SMBus
 
 bus = SMBus(1)
 
