@@ -129,7 +129,9 @@ def systemcheck():
             print(dev.name)
             try:
                 if dev.protocol == "i2c":
+                    print("in if")
                     for act in dev.actuatorlist:
+                        print(act.name)
                         act.do(30)
                         act.do(0)
             except:
