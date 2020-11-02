@@ -132,8 +132,8 @@ def systemcheck():
                     print("in if")
                     for act in dev.actuatorlist:
                         print(act.name)
-                        act.do(30)
-                        act.do(0)
+                        act.do("30")
+                        act.do("0")
             except:
                 print("Actuator failed")
                 pass
