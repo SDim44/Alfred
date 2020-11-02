@@ -22,7 +22,7 @@ def send(add,cmd):
     bus = SMBus(1)
     print(type(add))
     print(type(cmd))
-    cmd = ("0x",cmd)
+    cmd = ("0x"+str(cmd))
 
     add = int(add,16)
     cmd = int(cmd,16)
