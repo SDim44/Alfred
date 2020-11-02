@@ -360,11 +360,11 @@ try:
 #--------------------------------------------------------------------------------
 #Emotionen anzeigen
         
-
-        if wall == True:
-            set_emotion("AKZMM_004_1.gif")
-            set_speech("oh, eine wand")
-            logging.info("----> Wall detected!")
+        if _wired:
+            if wall == True:
+                set_emotion("AKZMM_004_1.gif")
+                set_speech("oh, eine wand")
+                logging.info("----> Wall detected!")
         
         if timer == ACTIONTIME:
             timer = 0
