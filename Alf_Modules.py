@@ -119,8 +119,9 @@ class actuator(object):
             client.publish(device_topic,command)
 
         elif protocol == "i2c":
-            print("{0} <- in modules call i2c.send".format(hex(cmd)))
-            i2c.send(dev_id,hex(cmd))
+            command = "0x",cmd
+            print("{0} <- in modules call i2c.send".format(command))
+            i2c.send(dev_id,command)
 
 
 def load_list(path="devicelist.pkl"):
