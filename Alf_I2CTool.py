@@ -23,8 +23,10 @@ def send(add,cmd):
     print(type(add))
     print(type(cmd))
     add = int(add,16)
-    add = hex(add)
-    cmd = hex(cmd)
+
+    int(add) = hex(add)
+    int(cmd) = hex(cmd)
+
     print(add)
     print(cmd)
     bus.write_byte(add, cmd)
