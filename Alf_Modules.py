@@ -120,3 +120,21 @@ class actuator(object):
 
         elif self.protocol == "i2c":
             i2c.send(self.mac_address,hex(cmd))
+
+
+def load_list():
+
+    default_path = "devicelist.pkl"
+    try:
+        datenobjekt = open(location, "rb")
+        objekt = pickle.load(datenobjekt)
+        datenobjekt.close()
+
+    devicelist = objekt
+
+    
+
+    return devicelist
+
+        except:
+            print("\n\n\n\n\n\n\t!!!ATTENTION - The file was not found or is damaged! z.B.:(C:/devicelist.pkl)")

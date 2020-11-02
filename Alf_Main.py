@@ -9,6 +9,7 @@
 #       Laufzeitfehler behoben und logging erweitert.
 #
 
+_wired = False
 
 #Libarys
 try: 
@@ -17,6 +18,7 @@ try:
     import os
     import RPi.GPIO as GPIO
     import Alf_WebGUI as wg
+    import Alf_Modules as modules
 
     if _wired:
         import Alf_Verfolgung as alf
@@ -42,8 +44,6 @@ prev_mode = "0"
 ACTIONTIME = 45
 BLINK = ACTIONTIME - 2
 
-_wired = False
-
 #--------------------------------------------------------------------------------
 #GPIO Warnungen deaktivieren
 GPIO.setwarnings(False)
@@ -51,7 +51,7 @@ GPIO.setwarnings(False)
 #--------------------------------------------------------------------------------
 #Start Logging
 Version = "V0.2"
-logging.basicConfig(filename=logfile,level=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+logging.basicConfig(filename=logfile,setlevel=logging.debug ,format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
 logging.FileHandler(logfile, mode="w", encoding=None, delay=False)
 logging.info("----------- Starte Alfred {0} ---------------".format(Version))
 print("----------- Starte Alfred {0} ---------------".format(Version))
@@ -121,6 +121,16 @@ def systemcheck():
     
     #------------
     #Tool ueberpruefen
+    devicelist = modules.load_list()
+    logging.info("---->Devece list loaded")
+    for dev in devicelist:
+        logging.info(dev.name)
+        if dev.protocol == "i2c":
+            for act in dev.actuator:
+                act.do(30)
+                act.do(0)
+
+    
 
     logging.info("----> Ladescreen erzeugen")
     set_emotion("AKZMM_001.gif")
