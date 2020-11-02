@@ -29,9 +29,13 @@ def send(add,cmd):
 
     #add = int(add,16)
     #cmd = int(cmd,16)
-
+    
+    
     print(add)
+    print(type(add))
     print(cmd)
+    print(type(cmd))
+    
     bus.write_byte(add, cmd)
     
     feedback = True
