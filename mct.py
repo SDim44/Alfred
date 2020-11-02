@@ -244,7 +244,7 @@ def create_device():
         if protocol == "i2c":
             mac_address = input("\n\t\t" + f"{'Slave Address (0x03) ' :<25}" + ": ")
             
-            if mac_address(0) != "0" and mac_address(1) != "x":
+            if "0x" not in mac_address:
                 continue
 
         else:
