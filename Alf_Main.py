@@ -121,7 +121,7 @@ def systemcheck():
     
     #------------
     #Tool ueberpruefen
-
+    import Alf_Modules as mdl
     devicelist = mdl.load_list()
     logging.info("---->Devece list loaded")
     for dev in devicelist:
