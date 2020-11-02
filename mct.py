@@ -255,7 +255,11 @@ def create_device():
 
     # ------------------------------------------------------------------
     # server_address
-    if protocol != "i2c":
+    if protocol == "i2c":
+        server_address = "-"
+        client_address = "-"
+
+    else:
         while True:
             server_address = input("\n\t\t" + f"{'Server address (hostname or ip-address)  ' :<25}" + ": ")
             i = 0
