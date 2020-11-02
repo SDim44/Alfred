@@ -23,7 +23,6 @@ def send(add,cmd):
     print(type(add))
     print(type(cmd))
 
-    int(add) = add
     int(cmd) = cmd
     print(add)
     print(cmd)
