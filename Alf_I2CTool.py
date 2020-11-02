@@ -22,7 +22,7 @@ def send(add,cmd):
     bus = SMBus(1)
     print(add)
     print(cmd)
-    bus.write_byte(int(add), int(cmd))
+    bus.write_byte(hex(add), hex(cmd))
     
     feedback = True
     
