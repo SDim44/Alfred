@@ -20,6 +20,9 @@ def send(add,cmd):
 
     from smbus import SMBus
     bus = SMBus(1)
+    print(type(add))
+    print(type(cmd))
+
     int(add) = add
     int(cmd) = cmd
     print(add)

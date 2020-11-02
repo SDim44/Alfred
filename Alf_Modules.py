@@ -119,6 +119,7 @@ class actuator(object):
             client.publish(device_topic,command)
 
         elif protocol == "i2c":
+            import Alf_I2CTool as i2c
             print("{0} <- in modules call i2c.send".format(cmd))
             i2c.send(dev_id,cmd)
 
