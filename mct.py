@@ -10,7 +10,7 @@
 #       Menue to add Modules to Alfred
 #       ------------------------------------------------------------
 #       V0.2 -> working on it
-#       Methodes to get Sensor Data or set Actuator from specific device
+#       Get Sensor Data or set Actuator directly from mct
 #       ------------------------------------------------------------
 
 
