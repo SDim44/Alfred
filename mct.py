@@ -17,7 +17,7 @@
 # import libraries
 import pickle
 import time
-import c_device as cla
+import Alf_Modules as cla
 import paho.mqtt.client as mqtt
 
 
@@ -41,7 +41,6 @@ client = mqtt.Client()
 # Menue
 
 def menue(loaded_list):
-    import c_device as cla
 
     while True:
         try:
