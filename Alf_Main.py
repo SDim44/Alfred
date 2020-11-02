@@ -126,6 +126,8 @@ def systemcheck():
         logging.info("---->Devece list loaded")
         for dev in devicelist:
             logging.info(dev.name)
+            print(dev.name)
+            print(dev.protocol)
             try:
                 if dev.protocol == "i2c":
                     for act in dev.actuatorlist:
