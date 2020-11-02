@@ -133,6 +133,7 @@ def systemcheck():
             for act in dev.actuatorlist:
                 print(act.name)
                 act.do(dev.protocol,dev.mac_address,30) ####Funktioniert nicht!!!
+                time.sleep(3)
                 act.do(dev.protocol,dev.mac_address,0)####Funktioniert nicht!!!
 
 
