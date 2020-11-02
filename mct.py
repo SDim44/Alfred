@@ -210,70 +210,78 @@ def create_device():
 
     # ------------------------------------------------------------------
     # protocol
+
     while True:
+        print("\n\t\tSupported Protocols:  {0}".format(cla.supported_protocol))
         protocol = input("\n\t\t" + f"{'Protocol  ' :<25}" + ": ")
-        i = 0
-        for s in protocol:
-            if s in forbidden:
-                i += 1
-            elif s in numbers:
-                i += 1
-        if i > 0:
-            print(
-                "\n\n\t!!!ATTENTION - Wrong entry! No special characters or numbers are allowed!")
+        if protocol not in cla.supported_protocol:
+            print("\n\n\t!!!ATTENTION - Wrong entry! Choose from Supported!")
             continue
         break
 
     # ------------------------------------------------------------------
     # connection type
-    while True:
-        connection_type = input("\n\t\t" + f"{'Connection type  ' :<25}" + ": ")
-        i = 0
-        for s in connection_type:
-            if s in forbidden:
-                i += 1
-            elif s in numbers:
-                i += 1
-        if i > 0:
-            print(
-                "\n\n\t!!!ATTENTION - Wrong entry! No special characters or numbers are allowed!")
-            continue
-        break
+    if protocol == "i2c":
+        connection_type = "bus"
+    else:
+        while True:
+            connection_type = input("\n\t\t" + f"{'Connection type  ' :<25}" + ": ")
+            i = 0
+            for s in connection_type:
+                if s in forbidden:
+                    i += 1
+                elif s in numbers:
+                    i += 1
+            if i > 0:
+                print(
+                    "\n\n\t!!!ATTENTION - Wrong entry! No special characters or numbers are allowed!")
+                continue
+            break
 
     # ------------------------------------------------------------------
-    # mac address
+    # mac address / Slave Adress / Device Identification
     while True:
-        mac_address = input("\n\t\t" + f"{'MAC Adress  ' :<25}" + ": ")
-        # Check if mac-address is correct
+        if protocol == "i2c":
+            try:
+                mac_address = hex(input("\n\t\t" + f"{'Slave Address ' :<25}" + ": "))
+            
+            except:
+                continue
+
+        else:
+            mac_address = input("\n\t\t" + f"{'MAC Adress  ' :<25}" + ": ")
+            # Check if mac-address is correct
+        
         break
 
     # ------------------------------------------------------------------
     # server_address
-    while True:
-        server_address = input("\n\t\t" + f"{'Server address (hostname or ip-address)  ' :<25}" + ": ")
-        i = 0
-        for s in server_address:
-            if s in forbidden:
-                i += 1
-        if i > 0:
-            print(
-                "\n\n\t!!!ATTENTION - Wrong entry! No special characters or numbers are allowed!")
-            continue
-        break
+    if protocol != "i2c":
+        while True:
+            server_address = input("\n\t\t" + f"{'Server address (hostname or ip-address)  ' :<25}" + ": ")
+            i = 0
+            for s in server_address:
+                if s in forbidden:
+                    i += 1
+            if i > 0:
+                print(
+                    "\n\n\t!!!ATTENTION - Wrong entry! No special characters or numbers are allowed!")
+                continue
+            break
 
-    # ------------------------------------------------------------------
-    # client_address
-    while True:
-        client_address = input("\n\t\t" + f"{'Client address (hostname or ip-address)  ' :<25}" + ": ")
-        i = 0
-        for s in client_address:
-            if s in forbidden:
-                i += 1
-        if i > 0:
-            print(
-                "\n\n\t!!!ATTENTION - Wrong entry! No special characters or numbers are allowed!")
-            continue
-        break
+        # ------------------------------------------------------------------
+        # client_address
+        while True:
+            client_address = input("\n\t\t" + f"{'Client address (hostname or ip-address)  ' :<25}" + ": ")
+            i = 0
+            for s in client_address:
+                if s in forbidden:
+                    i += 1
+            if i > 0:
+                print(
+                    "\n\n\t!!!ATTENTION - Wrong entry! No special characters or numbers are allowed!")
+                continue
+            break
 
     # ------------------------------------------------------------------
     # description
@@ -285,7 +293,7 @@ def create_device():
     sensorlist = create_sensors()
     actuatorlist = create_actuators()
 
-    status = "online"
+    status = "offline"
     objekt = cla.device(name, protocol, connection_type,mac_address,server_address,client_address,sensorlist,actuatorlist,description,status)
     
 

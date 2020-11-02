@@ -13,12 +13,12 @@
 
 import pickle
 import time
-import c_device as cla
 import paho.mqtt.client as mqtt
+import Alf_I2CTool as i2c
 
 
 # Variable
-supported_protocol = ["mqtt","serial","I2C"]
+supported_protocol = ["mqtt","serial","i2c"]
 supported_connection_type = ["lan","wlan","usb","bus"]
 supported_sensor_data = ["temperature","pressure","sealevelpressure","humidity"]
 supported_actuator_actions = ["btn","scale"]
@@ -113,6 +113,10 @@ class actuator(object):
         return ret  
     
     def do(selfe,cmd):
-        device_topic = "homestead/" + self.mac_address
-        command = "do " + cmd
-        client.publish(device_topic,command)
+        if self.protocol == "mqtt":
+            device_topic = "homestead/" + self.mac_address
+            command = "do " + cmd
+            client.publish(device_topic,command)
+
+        elif self.protocol == "i2c":
+            i2c.send(self.mac_address,hex(cmd))
