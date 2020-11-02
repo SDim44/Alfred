@@ -12,17 +12,19 @@
 
 
 #Import Libraries
-from smbus import SMBus
 
-bus = SMBus(1)
 
 def send(add,cmd):
     # add = Address in Hex
     # cmd = Command in Hex
+
+    from smbus import SMBus
+    bus = SMBus(1)
     try:
         bus.write_byte(add, cmd)
         feedback = True
     except:
         feedback = False
+        print("Failed to send i2c Data")
     
     return feedback
