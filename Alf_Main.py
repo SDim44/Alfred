@@ -127,16 +127,14 @@ def systemcheck():
         for dev in devicelist:
             logging.info(dev.name)
             print(dev.name)
-            try:
-                if dev.protocol == "i2c":
-                    print("in if")
-                    for act in dev.actuatorlist:
-                        print(act.name)
-                        act.do("30")
-                        act.do("0")
-            except:
-                print("Actuator failed")
-                pass
+
+            if dev.protocol == "i2c":
+                print("in if")
+                for act in dev.actuatorlist:
+                    print(act.name)
+                    act.do("30")
+                    act.do("0")
+
     except:
         logging.info("<----Failed")
 
