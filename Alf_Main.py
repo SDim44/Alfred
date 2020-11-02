@@ -166,9 +166,9 @@ def systemcheck():
     set_emotion("AKZMM_004_1.gif")
     time.sleep(1)
     set_emotion("AKMU_002_1.gif")
-    say("Hallo, mein name ist Alfred") 
-    #time.sleep(4)
     if _wired:
+        say("Hallo, mein name ist Alfred") 
+        #time.sleep(4)
         temperat= "Die aktuelle Temperatur betregt " + str(tem) + " Grad Celsius"
         say(temperat)
     #time.sleep(5)
