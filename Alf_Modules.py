@@ -112,14 +112,14 @@ class actuator(object):
         ret = print("\n\t" + f"{'{0}':^15}" + "|" + f"{'{1}' :^15}" + "|"  f"{'{2}' :^15}" .format(self.name, self.command, self.description))
         return ret  
     
-    def do(self,protocol,cmd):
+    def do(self,protocol,id,cmd):
         if protocol == "mqtt":
-            device_topic = "homestead/" + self.mac_address
+            device_topic = "homestead/" + id
             command = "do " + cmd
             client.publish(device_topic,command)
 
         elif protocol == "i2c":
-            i2c.send(self.mac_address,hex(cmd))
+            i2c.send(id,hex(cmd))
 
 
 def load_list(path="devicelist.pkl"):
