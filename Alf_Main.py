@@ -132,8 +132,8 @@ def systemcheck():
             print("in if")
             for act in dev.actuatorlist:
                 print(act.name)
-                act.do(dev.protocol,dev.mac_address,30)
-                act.do(dev.protocol,dev.mac_address,0)
+                act.do(dev.protocol,dev.mac_address,"0x30")
+                act.do(dev.protocol,dev.mac_address,"0x0")
 
 
 
