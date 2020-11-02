@@ -113,12 +113,12 @@ class actuator(object):
         return ret  
     
     def do(selfe,cmd):
-        if super().protocol == "mqtt":
+        if device.protocol(self) == "mqtt":
             device_topic = "homestead/" + self.mac_address
             command = "do " + cmd
             client.publish(device_topic,command)
 
-        elif super().protocol == "i2c":
+        elif device.protocol(self) == "i2c":
             i2c.send(self.mac_address,hex(cmd))
 
 
