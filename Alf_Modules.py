@@ -112,7 +112,7 @@ class actuator(object):
         ret = print("\n\t" + f"{'{0}':^15}" + "|" + f"{'{1}' :^15}" + "|"  f"{'{2}' :^15}" .format(self.name, self.command, self.description))
         return ret  
     
-    def do(selfe,protocol,cmd):
+    def do(self,protocol,cmd):
         if protocol == "mqtt":
             device_topic = "homestead/" + self.mac_address
             command = "do " + cmd
