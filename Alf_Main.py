@@ -121,22 +121,21 @@ def systemcheck():
     
     #------------
     #Tool ueberpruefen
-    try:
-        devicelist = mdl.load_list()
-        logging.info("---->Devece list loaded")
-        for dev in devicelist:
-            logging.info(dev.name)
-            print(dev.name)
 
-            if dev.protocol == "i2c":
-                print("in if")
-                for act in dev.actuatorlist:
-                    print(act.name)
-                    act.do("30")
-                    act.do("0")
+    devicelist = mdl.load_list()
+    logging.info("---->Devece list loaded")
+    for dev in devicelist:
+        logging.info(dev.name)
+        print(dev.name)
 
-    except:
-        logging.info("<----Failed")
+        if dev.protocol == "i2c":
+            print("in if")
+            for act in dev.actuatorlist:
+                print(act.name)
+                act.do("30")
+                act.do("0")
+
+
 
     
 
