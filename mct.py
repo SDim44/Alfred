@@ -242,10 +242,9 @@ def create_device():
     # mac address / Slave Adress / Device Identification
     while True:
         if protocol == "i2c":
-            try:
-                mac_address = hex(input("\n\t\t" + f"{'Slave Address ' :<25}" + ": "))
+            mac_address = input("\n\t\t" + f"{'Slave Address (0x03) ' :<25}" + ": ")
             
-            except:
+            if mac_address(0) != "0" and mac_address(1) != "x":
                 continue
 
         else:
