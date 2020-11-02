@@ -22,8 +22,6 @@ def send(add,cmd):
     bus = SMBus(1)
     print(type(add))
     print(type(cmd))
-
-    int(cmd) = cmd
     print(add)
     print(cmd)
     add = hex(add)
