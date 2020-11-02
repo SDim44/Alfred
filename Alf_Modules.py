@@ -121,7 +121,7 @@ class actuator(object):
         elif protocol == "i2c":
             import Alf_I2CTool as i2c
             print("{0} <- in modules call i2c.send".format(cmd))
-            i2c.send(dev_id,cmd)
+            i2c.send(int(dev_id),int(cmd))
 
 
 def load_list(path="devicelist.pkl"):
