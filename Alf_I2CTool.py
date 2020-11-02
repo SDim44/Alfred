@@ -23,7 +23,7 @@ def send(add,cmd):
     print(type(add))
     print(type(cmd))
     add = int(add,16)
-    add = hex(cmd)
+    add = hex(add)
     cmd = hex(cmd)
     print(add)
     print(cmd)
