@@ -20,6 +20,8 @@ def send(add,cmd):
 
     from smbus import SMBus
     bus = SMBus(1)
+    print(add)
+    print(cmd)
     try:
         bus.write_byte(add, cmd)
         feedback = True
