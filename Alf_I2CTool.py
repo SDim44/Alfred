@@ -24,8 +24,8 @@ def send(add,cmd):
     print(type(cmd))
     add = int(add,16)
 
-    add = hex(add)
-    cmd = hex(cmd)
+    add = int(hex(add),16)
+    cmd = int(hex(cmd),16)
 
     #add = int(add,16)
     #cmd = int(cmd,16)
