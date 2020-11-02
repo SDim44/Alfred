@@ -18,7 +18,7 @@ try:
     import os
     import RPi.GPIO as GPIO
     import Alf_WebGUI as wg
-    import Alf_Modules as modules
+    import Alf_Modules as mdl
 
     if _wired:
         import Alf_Verfolgung as alf
@@ -121,7 +121,7 @@ def systemcheck():
     
     #------------
     #Tool ueberpruefen
-    devicelist = modules.load_list()
+    devicelist = mdl.load_list()
     logging.info("---->Devece list loaded")
     for dev in devicelist:
         logging.info(dev.name)

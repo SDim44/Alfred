@@ -130,11 +130,7 @@ def load_list():
         objekt = pickle.load(datenobjekt)
         datenobjekt.close()
 
-    devicelist = objekt
-
-    
-
-    return devicelist
+    return objekt
 
         except:
             print("\n\n\n\n\n\n\t!!!ATTENTION - The file was not found or is damaged! z.B.:(C:/devicelist.pkl)")
