@@ -154,5 +154,4 @@ def save_list(devicelist,path="devicelist.pkl"):
         print("\n\n\tDevicelist saved -> '{0}'".format(location))
 
     except:
-        print(
-            "\n\n\n\n\n\n\t!!!ATTENTION - Location not found! {0} z.B.:(C:/devicelist.pkl)".format(path))
+        print("\n\n\n\n\n\n\t!!!ATTENTION - Location not found! {0} z.B.:(C:/devicelist.pkl)".format(path))

@@ -378,8 +378,7 @@ def save_list(loaded_list):
             break
 
         except:
-            print(
-                "\n\n\n\n\n\n\t!!!ATTENTION - Location not found! z.B.:(C:/devicelist.pkl)")
+            print("\n\n\n\n\n\n\t!!!ATTENTION - Location not found! z.B.:(C:/devicelist.pkl)")
 
 
 def on_connect(client, userdata, flags, rc):
