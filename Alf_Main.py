@@ -124,17 +124,26 @@ def systemcheck():
     import Alf_Modules as mdl
     devicelist = mdl.load_list()
     logging.info("---->Devece list loaded")
+
+    # Check I2C Devices
     for dev in devicelist:
         logging.info(dev.name)
         print(dev.name)
 
         if dev.protocol == "i2c":
-            print("in if")
-            for act in dev.actuatorlist:
-                print(act.name)
-                act.do(dev.protocol,dev.mac_address,30)
-                time.sleep(3)
-                act.do(dev.protocol,dev.mac_address,0)
+            try:
+                for act in dev.actuatorlist:
+                    print(act.name)
+                    act.do(dev.protocol,dev.mac_address,30)
+                    time.sleep(3)
+                    act.do(dev.protocol,dev.mac_address,0)
+                dev.status = "online"
+            except:
+                dev.status = "offline"
+
+    #save_devicelist (Status-Update)
+    mdl.save_list(devicelist)
+            
 
 
 

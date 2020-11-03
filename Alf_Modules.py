@@ -125,6 +125,7 @@ class actuator(object):
 
 
 def load_list(path="devicelist.pkl"):
+    import Alf_Modules as mdl
 
     try:
         datenobjekt = open(path, "rb")
@@ -135,4 +136,23 @@ def load_list(path="devicelist.pkl"):
     except:
         print("\n\n\n\n\n\n\t!!!ATTENTION - The file was not found or is damaged! z.B.:(/home/pi/Alfred/devicelist.pkl)")
 
+
+# ------------------------------------------------------------------------------------------------------
+# save device list
+
+def save_list(devicelist,path="devicelist.pkl"):
+    import Alf_Modules as mdl
     
+    try:
+        if ".pkl" not in path:
+            path = (str(path) + ".pkl")
+
+        datenobjekt = open(path, "wb")
+        pickle.dump(devicelist, datenobjekt)
+        datenobjekt.close()
+        
+        print("\n\n\tDevicelist saved -> '{0}'".format(location))
+
+    except:
+        print(
+            "\n\n\n\n\n\n\t!!!ATTENTION - Location not found! z.B.:(C:/devicelist.pkl)")
