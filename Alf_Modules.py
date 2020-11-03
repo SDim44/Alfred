@@ -142,7 +142,7 @@ def load_list(path="devicelist.pkl"):
 
 def save_list(devicelist,path="devicelist.pkl"):
     import Alf_Modules as mdl
-    
+
     try:
         if ".pkl" not in path:
             path = (str(path) + ".pkl")
@@ -155,4 +155,4 @@ def save_list(devicelist,path="devicelist.pkl"):
 
     except:
         print(
-            "\n\n\n\n\n\n\t!!!ATTENTION - Location not found! z.B.:(C:/devicelist.pkl)")
+            "\n\n\n\n\n\n\t!!!ATTENTION - Location not found! {0} z.B.:(C:/devicelist.pkl)".format(path))
