@@ -105,7 +105,7 @@ def create_sensors():
     forbidden = "!$%&/()=?-+*"
     numbers = "0123456789"
 
-    sensorlist =[]
+    command =[]
     n=0
     while True:
         n+=1
@@ -129,7 +129,7 @@ def create_sensors():
 
 
         svalue = cla.sensor(s_name,s_unit,s_description)
-        sensorlist.append(svalue)
+        command.append(svalue)
 
         rp = input("\n\twould you like to add another device? (y/n): ")
         i = 0
@@ -140,7 +140,7 @@ def create_sensors():
             print('\n\n\n\n\n')
             break
         
-    return sensorlist
+    return command
 
 # ------------------------------------------------------------------
 # create actuator
@@ -254,16 +254,16 @@ def create_device():
         break
 
     # ------------------------------------------------------------------
-    # server_address
+    # ip_address
     if protocol == "i2c":
-        server_address = "-"
+        ip_address = "-"
         client_address = "-"
 
     else:
         while True:
-            server_address = input("\n\t\t" + f"{'Server address (hostname or ip-address)  ' :<25}" + ": ")
+            ip_address = input("\n\t\t" + f"{'Server address (hostname or ip-address)  ' :<25}" + ": ")
             i = 0
-            for s in server_address:
+            for s in ip_address:
                 if s in forbidden:
                     i += 1
             if i > 0:
@@ -293,11 +293,11 @@ def create_device():
         # ------------
         break
 
-    sensorlist = create_sensors()
+    command = create_sensors()
     actuatorlist = create_actuators()
 
     status = "offline"
-    objekt = cla.device(name, protocol, connection_type,mac_address,server_address,client_address,sensorlist,actuatorlist,description,status)
+    objekt = cla.device(name, protocol, connection_type,mac_address,ip_address,client_address,command,actuatorlist,description,status)
     
 
     return objekt

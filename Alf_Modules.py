@@ -28,14 +28,14 @@ supported_actuator_actions = ["btn","scale"]
 # define class
 
 class device(object):
-    def __init__(self, name, protocol, connection_type, mac_address, server_address, client_address, sensorlist, actuatorlist, description, status):
+    def __init__(self, name, protocol, connection_type, mac_address, ip_address, client_address, commandlist, actuatorlist, description, status):
         self.name = name
         self.protocol = protocol
         self.connection_type = connection_type
         self.mac_address = mac_address
-        self.server_address = server_address
+        self.ip_address = ip_address
         self.client_address = client_address
-        self.sensorlist = sensorlist
+        self.command = command
         self.actuatorlist = actuatorlist
         self.description = description
         self.status = status
@@ -52,7 +52,7 @@ class device(object):
     def abilities(self):
         slist = []
         alist = []
-        for s in self.sensorlist:
+        for s in self.command:
             slist.append(s.name)
         
         for a in self.actuatorlist:
@@ -123,6 +123,10 @@ class actuator(object):
             print("{0} <- in modules call i2c.send".format(cmd))
             i2c.send(dev_id,cmd)
 
+
+
+# ------------------------------------------------------------------------------------------------------
+# load device list
 
 def load_list(path="devicelist.pkl"):
     import Alf_Modules as mdl
