@@ -64,6 +64,7 @@ class device(object):
         # auto generate
         self.commandlist = self.update_commandlist()
         self.status = self.update_status()              #True = online
+        self.data = self.update_data()
         
 
         print("\n\n\t\tDevice created!: {0} {1}".format(self.name, self.description))
@@ -80,6 +81,8 @@ class device(object):
             status = "OFFLINE"
 
         print("\n\t{0:{3}}  |  {1:{4}}  |  {2:{5}}".format(self.name,status,self.description,20,15,40))
+        if self.data:
+            print("\t{0}".format(self.data))
 
 
     def show_commands(self):
@@ -143,6 +146,24 @@ class device(object):
         else:
             self.serial == False
 
+    def update_data(self):
+        from datetime import datetime
+        data = {}
+        if self.mqtt:
+            sensor_topic = "homestead/sensor/" + self.mac_address
+            print("Scanning MQTT Device Path ...")
+            msg = mqtt_pull(try_time=6,broker=self.broker,topic=sensor_topic)
+            print(msg)
+
+            if msg:
+                splitted = msg.split(";")
+                for dataset in splitted:
+                    info = dataset.split(",") 
+                    data[info[0]] = info[1]
+            else:
+                data = False
+        return data
+
     def update_status(self):
         status = False
         if self.i2c:
@@ -150,17 +171,14 @@ class device(object):
                 import modules.interfaces.i2c as i2c
                 i2c.send(self.slave_address,0)
                 status = True
-                
             except:
                 pass
 
         if self.mqtt:
-            requests = mqtt_authenticator(5,self.broker)
-            for entry in requests:
-                if entry["mac_address"] == self.mac_address:
-                    status == True
-                        
-        print(status)
+            self.data = self.update_data
+            if self.data:
+                status = True
+
         return status
 
     def update_commandlist(self):
@@ -169,6 +187,7 @@ class device(object):
         for driver in driverlist:
             import importlib
             MODULE_NAME = "modules.driver."+driver[0]
+            print("\n\t\tImport {0} from Device {1}".format(MODULE_NAME,self.name))
             d = importlib.import_module(MODULE_NAME)
             
             if self.i2c == True and driver[1] == "i2c":
@@ -427,7 +446,7 @@ def load_devicelist():
 # ------------------------------------------------------------------------------------------------------
 # MQTT Auhtenticator
 
-def mqtt_authenticator(try_time=5,broker="localhost",port=1883,topic="homestead/Authentication/#"):
+def mqtt_pull(try_time=5,broker="localhost",port=1883,topic="homestead/#"):
     
     import paho.mqtt.client as mqtt
     from uuid import getnode as get_mac
@@ -461,19 +480,8 @@ def mqtt_authenticator(try_time=5,broker="localhost",port=1883,topic="homestead/
 
         msg = str(message.payload.decode("utf-8"))
 
-        splitted = msg.split(";")
-        data = {}
+        mqtt_requests = msg
 
-        #print("\n\n\tDevice found: ")
-
-        for dataset in splitted:
-            info = dataset.split(",")
-            #print("\n\t\t{0} :  {1}".format(info[0],info[1]))
-                
-            data[info[0]] = info[1]
-
-        mqtt_requests.append(data)
-        
     # --------------------
     # MQTT message sent
 
@@ -726,7 +734,18 @@ def manager():
                 
                 broker = "testipi"
                 title("Searching for new Devices ...")
-                requests = mqtt_authenticator(5,broker)
+                requests = []
+
+                msg = mqtt_pull(try_time=5,broker=broker,topic="homestead/Authentication/#")
+                splitted = msg.split(";")
+                data = {}
+
+                for dataset in splitted:
+                    info = dataset.split(",") 
+                    data[info[0]] = info[1]
+
+                requests.append(data)
+
                 found_devices = []
                 
                 for entry in requests:
