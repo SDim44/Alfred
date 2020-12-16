@@ -148,7 +148,8 @@ class device(object):
 
     def update_data(self):
         from datetime import datetime
-        data = {}
+        data = False
+
         if self.mqtt:
             sensor_topic = "homestead/sensor/" + self.mac_address
             print("Scanning MQTT Device Path ...")
@@ -156,30 +157,33 @@ class device(object):
             print(msg)
 
             if msg:
+                data = {}
                 splitted = msg.split(";")
                 for dataset in splitted:
                     info = dataset.split(",") 
                     data[info[0]] = info[1]
-            else:
-                data = False
+        print("MQTT DATA from call: {0}".format(data))
         return data
 
     def update_status(self):
-        status = False
+        self.status = False
         if self.i2c:
             try:
                 import modules.interfaces.i2c as i2c
                 i2c.send(self.slave_address,0)
-                status = True
+                self.status = True
             except:
                 pass
 
         if self.mqtt:
-            self.data = self.update_data
-            if self.data:
-                status = True
+            call_data = self.update_data
+            if call_data:
+                print(call_data)
+                self.data = call_data 
+                self.status = True
+            else:
+                self.status = False
 
-        return status
 
     def update_commandlist(self):
         driverlist = self.driver

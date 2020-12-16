@@ -18,6 +18,7 @@ cap = cv2.VideoCapture(0)
 
 #------------------------------------------------------------------------------------------------- 
 #Auf dem Bild nach Gesicht suchen und Koordinaten zurueckgeben
+
 def facedetect():
     face_cascade = cv2.CascadeClassifier('DATA/haarcascades/haarcascade_frontalface_default.xml')
 
