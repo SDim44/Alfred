@@ -14,24 +14,23 @@
 
 supported_protocol = ["mqtt","i2c","serial"]
 supported_commands = ["set.1000 - 6180"]
+  
+def writeData(value):
+    byteValue = StringToBytes(value)    
+    bus.write_i2c_block_data(address,0x00,byteValue) #first byte is 0=command byte.. just is.
+    return -1
+
+def StringToBytes(val):
+        retVal = []
+        for c in val:
+            retVal.append(ord(c))
+        return retVal
 
 def i2c(slave_address,command):
-    from ..interfaces import i2c
+    from smbus import SMBus
+    bus = SMBus(1)
 
-    i2c.send(slave_address,command)
-
-def i2c_ack(slave_address,command):
-    from ..interfaces import i2c
-
-    i2c.send_safe(slave_address,command)
-    
-
-def serial(serial_port,baudrate,command):
-    from ..interfaces import serial
-    serial.send(port,baud,command)
-
-
-
-def mqtt(mac_address,command):
-    #Post Number in device path
-    pass
+    while True:
+        print("sending")
+        writeData(command)   
+        time.sleep(5)
