@@ -18,7 +18,7 @@ supported_commands = ["set.1000 - 6180"]
 def i2c(slave_address,command):
     from smbus import SMBus
     bus = SMBus(1)
-    retVal = []
+    byteValue = []
 
     for c in command:
         byteValue.append(ord(c))
