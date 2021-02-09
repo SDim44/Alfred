@@ -46,7 +46,7 @@ def send_safe(add,cmd):
     i2cData = False
     while True:
         i2cData = not i2cData
-        send(add,cmd)
+        bus.write_byte(add, cmd)
 
         #ack = bus.read_byte(add)
         print(bus.read_byte(add))
