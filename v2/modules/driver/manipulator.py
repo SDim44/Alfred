@@ -16,6 +16,8 @@ supported_protocol = ["mqtt","i2c","serial"]
 supported_commands = ["set.1000 - 6180"]
   
 def writeData(value):
+    from smbus import SMBus
+    bus = SMBus(1)
     byteValue = StringToBytes(value)    
     bus.write_i2c_block_data(address,0x00,byteValue) #first byte is 0=command byte.. just is.
     return -1
@@ -27,8 +29,6 @@ def StringToBytes(val):
         return retVal
 
 def i2c(slave_address,command):
-    from smbus import SMBus
-    bus = SMBus(1)
 
     while True:
         print("sending")
