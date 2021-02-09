@@ -39,6 +39,7 @@ def send(add,cmd):
 
 def send_safe(add,cmd):
 
+    import time
     from smbus import SMBus
     bus = SMBus(1)
     #ack = 0xff
