@@ -43,6 +43,6 @@ def send_safe(add,cmd):
     bus = SMBus(1)
 
     send(add,cmd)
-    bus.read_byte(value)
+    value = bus.read_byte()
     
     return value
