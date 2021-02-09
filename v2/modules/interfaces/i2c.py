@@ -42,8 +42,17 @@ def send_safe(add,cmd):
     from smbus import SMBus
     bus = SMBus(1)
 
-    send(add,cmd)
-    value = bus.read_byte_data(add,0)
-    print(value)
+    i2cData = False
+    while True:
+        i2cData = not i2cData
+        send(add,cmd)
+
+        value = bus.read_byte(add)
+        print(value)
+        time.sleep(1)
+        if not value:
+            continue
+        else:
+            break
     
     return value
