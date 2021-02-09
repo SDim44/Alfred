@@ -23,4 +23,4 @@ def i2c(slave_address,command):
     for c in command:
         byteValue.append(ord(c))
 
-    bus.write_i2c_block_data(address,0x00,byteValue)
+    bus.write_i2c_block_data(slave_address,0x00,byteValue)
