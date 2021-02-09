@@ -11,6 +11,7 @@
 #       ------------------------------------------------------------
 
 
+
 supported_protocol = ["mqtt","i2c","serial"]
 supported_commands = ["scale.0-40"]
 
@@ -18,6 +19,11 @@ def i2c(slave_address,command):
     from ..interfaces import i2c
 
     i2c.send(slave_address,command)
+
+def i2c_ack(slave_address,command):
+    from ..interfaces import i2c
+
+    i2c.send_safe(slave_address,command)
     
 
 def serial(serial_port,baudrate,command):
